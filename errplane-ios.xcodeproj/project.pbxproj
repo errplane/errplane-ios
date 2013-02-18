@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD0EE5AC16CE548600210834 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5AB16CE548600210834 /* Foundation.framework */; };
+		CD0EE5BA16CE548600210834 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5B916CE548600210834 /* SenTestingKit.framework */; };
+		CD0EE5BC16CE548600210834 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5BB16CE548600210834 /* UIKit.framework */; };
+		CD0EE5BD16CE548600210834 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5AB16CE548600210834 /* Foundation.framework */; };
+		CD0EE5C016CE548600210834 /* liberrplane-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5A816CE548600210834 /* liberrplane-ios.a */; };
+		CD0EE5C616CE548600210834 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD0EE5C416CE548600210834 /* InfoPlist.strings */; };
+		CD0EE5D416CE5A8B00210834 /* Errplane.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
+		CD0EE5D516CE5A8B00210834 /* Errplane.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5D316CE5A8B00210834 /* Errplane.m */; };
+		CD0EE5E216CFAD2600210834 /* EPReportHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5E016CFAD2600210834 /* EPReportHelper.h */; };
+		CD0EE5E316CFAD2600210834 /* EPReportHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5E116CFAD2600210834 /* EPReportHelper.m */; };
+		CD0EE5F816CFCCCF00210834 /* EPHTTPPostHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */; };
+		CD0EE5F916CFCCCF00210834 /* EPHTTPPostHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */; };
+		CD0EE5FC16D0FCE700210834 /* ErrplaneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CD0EE5BE16CE548600210834 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD0EE59F16CE548600210834 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD0EE5A716CE548600210834;
+			remoteInfo = "errplane-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CD0EE5A816CE548600210834 /* liberrplane-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liberrplane-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0EE5AB16CE548600210834 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD0EE5AF16CE548600210834 /* errplane-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "errplane-ios-Prefix.pch"; sourceTree = "<group>"; };
+		CD0EE5B816CE548600210834 /* errplane-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "errplane-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0EE5B916CE548600210834 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		CD0EE5BB16CE548600210834 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		CD0EE5C316CE548600210834 /* errplane-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "errplane-iosTests-Info.plist"; sourceTree = "<group>"; };
+		CD0EE5C516CE548600210834 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CD0EE5D216CE5A8B00210834 /* Errplane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Errplane.h; sourceTree = "<group>"; };
+		CD0EE5D316CE5A8B00210834 /* Errplane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Errplane.m; sourceTree = "<group>"; };
+		CD0EE5E016CFAD2600210834 /* EPReportHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPReportHelper.h; sourceTree = "<group>"; };
+		CD0EE5E116CFAD2600210834 /* EPReportHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPReportHelper.m; sourceTree = "<group>"; };
+		CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPHTTPPostHelper.h; sourceTree = "<group>"; };
+		CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPHTTPPostHelper.m; sourceTree = "<group>"; };
+		CD0EE5FA16D0FCE700210834 /* ErrplaneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrplaneTest.h; sourceTree = "<group>"; };
+		CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrplaneTest.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD0EE5A516CE548600210834 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0EE5AC16CE548600210834 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD0EE5B416CE548600210834 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0EE5BA16CE548600210834 /* SenTestingKit.framework in Frameworks */,
+				CD0EE5BC16CE548600210834 /* UIKit.framework in Frameworks */,
+				CD0EE5BD16CE548600210834 /* Foundation.framework in Frameworks */,
+				CD0EE5C016CE548600210834 /* liberrplane-ios.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD0EE59D16CE548600210834 = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5AD16CE548600210834 /* errplane-ios */,
+				CD0EE5C116CE548600210834 /* errplane-iosTests */,
+				CD0EE5AA16CE548600210834 /* Frameworks */,
+				CD0EE5A916CE548600210834 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD0EE5A916CE548600210834 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5A816CE548600210834 /* liberrplane-ios.a */,
+				CD0EE5B816CE548600210834 /* errplane-iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD0EE5AA16CE548600210834 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5AB16CE548600210834 /* Foundation.framework */,
+				CD0EE5B916CE548600210834 /* SenTestingKit.framework */,
+				CD0EE5BB16CE548600210834 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD0EE5AD16CE548600210834 /* errplane-ios */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5DB16CFAC5D00210834 /* Support */,
+				CD0EE5AE16CE548600210834 /* Supporting Files */,
+				CD0EE5D216CE5A8B00210834 /* Errplane.h */,
+				CD0EE5D316CE5A8B00210834 /* Errplane.m */,
+			);
+			path = "errplane-ios";
+			sourceTree = "<group>";
+		};
+		CD0EE5AE16CE548600210834 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5AF16CE548600210834 /* errplane-ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD0EE5C116CE548600210834 /* errplane-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5FA16D0FCE700210834 /* ErrplaneTest.h */,
+				CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */,
+				CD0EE5E816CFB44000210834 /* Support */,
+				CD0EE5C216CE548600210834 /* Supporting Files */,
+			);
+			path = "errplane-iosTests";
+			sourceTree = "<group>";
+		};
+		CD0EE5C216CE548600210834 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5C316CE548600210834 /* errplane-iosTests-Info.plist */,
+				CD0EE5C416CE548600210834 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CD0EE5DB16CFAC5D00210834 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CD0EE5E016CFAD2600210834 /* EPReportHelper.h */,
+				CD0EE5E116CFAD2600210834 /* EPReportHelper.m */,
+				CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */,
+				CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		CD0EE5E816CFB44000210834 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CD0EE5A616CE548600210834 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0EE5D416CE5A8B00210834 /* Errplane.h in Headers */,
+				CD0EE5E216CFAD2600210834 /* EPReportHelper.h in Headers */,
+				CD0EE5F816CFCCCF00210834 /* EPHTTPPostHelper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CD0EE5A716CE548600210834 /* errplane-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD0EE5CC16CE548600210834 /* Build configuration list for PBXNativeTarget "errplane-ios" */;
+			buildPhases = (
+				CD0EE5A416CE548600210834 /* Sources */,
+				CD0EE5A516CE548600210834 /* Frameworks */,
+				CD0EE5A616CE548600210834 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "errplane-ios";
+			productName = "errplane-ios";
+			productReference = CD0EE5A816CE548600210834 /* liberrplane-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CD0EE5B716CE548600210834 /* errplane-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD0EE5CF16CE548600210834 /* Build configuration list for PBXNativeTarget "errplane-iosTests" */;
+			buildPhases = (
+				CD0EE5B316CE548600210834 /* Sources */,
+				CD0EE5B416CE548600210834 /* Frameworks */,
+				CD0EE5B516CE548600210834 /* Resources */,
+				CD0EE5B616CE548600210834 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CD0EE5BF16CE548600210834 /* PBXTargetDependency */,
+			);
+			name = "errplane-iosTests";
+			productName = "errplane-iosTests";
+			productReference = CD0EE5B816CE548600210834 /* errplane-iosTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD0EE59F16CE548600210834 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Revolution Capital Management";
+			};
+			buildConfigurationList = CD0EE5A216CE548600210834 /* Build configuration list for PBXProject "errplane-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CD0EE59D16CE548600210834;
+			productRefGroup = CD0EE5A916CE548600210834 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD0EE5A716CE548600210834 /* errplane-ios */,
+				CD0EE5B716CE548600210834 /* errplane-iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD0EE5B516CE548600210834 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0EE5C616CE548600210834 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CD0EE5B616CE548600210834 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD0EE5A416CE548600210834 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0EE5D516CE5A8B00210834 /* Errplane.m in Sources */,
+				CD0EE5E316CFAD2600210834 /* EPReportHelper.m in Sources */,
+				CD0EE5F916CFCCCF00210834 /* EPHTTPPostHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD0EE5B316CE548600210834 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0EE5FC16D0FCE700210834 /* ErrplaneTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CD0EE5BF16CE548600210834 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD0EE5A716CE548600210834 /* errplane-ios */;
+			targetProxy = CD0EE5BE16CE548600210834 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CD0EE5C416CE548600210834 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD0EE5C516CE548600210834 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD0EE5CA16CE548600210834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CD0EE5CB16CE548600210834 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD0EE5CD16CE548600210834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/errplane_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CD0EE5CE16CE548600210834 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/errplane_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CD0EE5D016CE548600210834 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				INFOPLIST_FILE = "errplane-iosTests/errplane-iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		CD0EE5D116CE548600210834 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				INFOPLIST_FILE = "errplane-iosTests/errplane-iosTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD0EE5A216CE548600210834 /* Build configuration list for PBXProject "errplane-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD0EE5CA16CE548600210834 /* Debug */,
+				CD0EE5CB16CE548600210834 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD0EE5CC16CE548600210834 /* Build configuration list for PBXNativeTarget "errplane-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD0EE5CD16CE548600210834 /* Debug */,
+				CD0EE5CE16CE548600210834 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CD0EE5CF16CE548600210834 /* Build configuration list for PBXNativeTarget "errplane-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD0EE5D016CE548600210834 /* Debug */,
+				CD0EE5D116CE548600210834 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD0EE59F16CE548600210834 /* Project object */;
+}
