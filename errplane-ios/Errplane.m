@@ -124,7 +124,7 @@ static int queueCapacity = 100;
     return success;
 }
 
-+ (BOOL) reportInt:(NSString*) name:(int) value {
++ (BOOL) report:(NSString*) name withInt:(int) value {
     EPReportHelper* helper = [self getHelper:name];
     BOOL success = YES;
     if (helper == nil) {
@@ -139,7 +139,7 @@ static int queueCapacity = 100;
     return success;
 }
 
-+ (BOOL) reportDouble:(NSString*) name:(double) value {
++ (BOOL) report:(NSString*) name withDouble:(double) value {
     EPReportHelper* helper = [self getHelper:name];
     BOOL success = YES;
     if (helper == nil) {
@@ -154,25 +154,37 @@ static int queueCapacity = 100;
     return success;
 }
 
-+ (BOOL) reportWithContext:(NSString*) name:(NSString*) context {
-    BOOL success = YES;
++ (BOOL) report:(NSString*) name withContext:(NSString*) context {
+    BOOL success = NO;
     
     return success;
     
 }
 
-+ (BOOL) reportIntWithContext:(NSString*) name:(int) value:(NSString*) context {
-    BOOL success = YES;
++ (BOOL) report:(NSString*) name withInt:(int)value andContext:(NSString *)context {
+    BOOL success = NO;
     
     return success;
     
 }
 
-+ (BOOL) reportDoubleWithContext:(NSString*) name:(double) value:(NSString*) context {
-    BOOL success = YES;
++ (BOOL) report:(NSString*) name withDouble:(double)value andContext:(NSString *)context {
+    BOOL success = NO;
     
     return success;
     
+}
+
++ (BOOL) time:(NSString*) name withBlock:(void (^)(void))timedBlock {
+    
+    NSDate* start = [NSDate date];
+    timedBlock();
+    int totalTime = (int) ([start timeIntervalSinceNow] * -1000.0);
+    
+    NSLog(@"totalTime: %d", totalTime);
+    
+    return [self report:[NSString stringWithFormat:@"timed_blocks/#{%@}", name]
+                 withInt:totalTime];
 }
 
 @end

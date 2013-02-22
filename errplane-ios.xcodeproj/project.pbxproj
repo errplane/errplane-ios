@@ -219,7 +219,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
-				ORGANIZATIONNAME = "Revolution Capital Management";
+				ORGANIZATIONNAME = Errplane;
 			};
 			buildConfigurationList = CD0EE5A216CE548600210834 /* Build configuration list for PBXProject "errplane-ios" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -374,6 +374,7 @@
 		CD0EE5D016CE548600210834 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -389,6 +390,7 @@
 		CD0EE5D116CE548600210834 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -420,6 +422,7 @@
 				CD0EE5CE16CE548600210834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD0EE5CF16CE548600210834 /* Build configuration list for PBXNativeTarget "errplane-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -428,6 +431,7 @@
 				CD0EE5D116CE548600210834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

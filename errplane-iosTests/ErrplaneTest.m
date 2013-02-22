@@ -26,10 +26,10 @@
 {
     [super setUp];
     
-    url = @"update this"; 
-    apiKey = @"update this";
-    appKey = @"update this";
-    envKey = @"update this";
+    url = @"127.0.0.1"; 
+    apiKey = @"api_key";
+    appKey = @"testApp";
+    envKey = @"staging";
 }
 
 - (void)tearDown
@@ -81,25 +81,80 @@
     STAssertTrue([Errplane report:@"unittest_errplane-ios/testReport"], @"Failed to report data to Errplane");
     
     // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:5];
+    [NSThread sleepForTimeInterval:2];
+    STFail(@"add negative tests and edge cases");
 }
 
--(void) testReportInt {
+-(void) testReportWithInt {
     [self initErrplane];
     
-    STAssertTrue([Errplane reportInt:@"unittest_errplane-ios/testReportInt": 37], @"Failed to report data to Errplane");
+    STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithInt"
+                           withInt: 37], @"Failed to report data to Errplane");
     
     // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:5];
+    [NSThread sleepForTimeInterval:2];
+    STFail(@"add negative tests and edge cases");
 }
 
--(void) testReportDouble {
+-(void) testReportWithDouble {
     [self initErrplane];
     
-    STAssertTrue([Errplane reportDouble:@"unittest_errplane-ios/testReportDouble": 356.75], @"Failed to report data to Errplane");
+    STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithDouble"
+                           withDouble: 356.75], @"Failed to report data to Errplane");
     
     // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:5];
+    [NSThread sleepForTimeInterval:2];
+    STFail(@"add negative tests and edge cases");
+}
+
+-(void) testReportWithContext {
+    [self initErrplane];
+    
+    STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithContext"
+                      withContext:@"Delayed Server Request"], @"Failed to report data to Errplane");
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+    STFail(@"add negative tests and edge cases");
+}
+
+-(void) testReportWithIntAndContext {
+    [self initErrplane];
+    
+    STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithIntAndContext"
+                           withInt: 37
+                           andContext:@"Slow Processing"], @"Failed to report data to Errplane");
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+    STFail(@"add negative tests and edge cases");
+}
+
+-(void) testReportWithDoubleAndContext {
+    [self initErrplane];
+    
+    STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithDoubleAndContext"
+                           withDouble: 192.75
+                           andContext:@"Average Response Time"], @"Failed to report data to Errplane");
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+    STFail(@"add negative tests and edge cases");
+}
+
+-(void) testTime {
+    [self initErrplane];
+    
+    void (^testTimeBlock) (void);
+    
+    testTimeBlock = ^(void) {
+        // sleep 5 secs
+        [NSThread sleepForTimeInterval:3];
+    };
+    
+    STAssertTrue([Errplane time:@"unittest_errplane-ios/testTime" withBlock: testTimeBlock], @"Failed to time execution of block.");
+    
+    STFail(@"add negative tests and edge cases");
 }
 
 @end

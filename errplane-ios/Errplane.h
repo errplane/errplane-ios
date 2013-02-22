@@ -35,7 +35,7 @@
 /**
  Posts a datapoint with a default int value of 1 to the timeline[s] specified.
  @param name the name[s] of the timeline[s] to post the data point to.
- @return false if Errplane was not previously initialized.
+ @return false if Errplane was not previously initialized or the name exceeds 249 characters.
  */
 + (BOOL) report:(NSString*) name;
 
@@ -43,42 +43,49 @@
  Posts a datapoint with the value specified to the timeline[s] specified.
  @param name the name[s] of the timeline[s] to post the data point to.
  @param value the int value to post to the timeline.
- @return false if Errplane was not previously initialized.
+ @return false if Errplane was not previously initialized or the name exceeds 249 characters.
  */
-+ (BOOL) reportInt:(NSString*) name:(int) value;
++ (BOOL) report:(NSString*) name withInt: (int) value;
 
 /**
  Posts a datapoint with the value specified to the timeline[s] specified.
  @param name the name[s] of the timeline[s] to post the data point to.
  @param value the double value to post to the timeline.
- @return false if Errplane was not previously initialized.
+ @return false if Errplane was not previously initialized or the name exceeds 249 characters.
  */
-+ (BOOL) reportDouble:(NSString*) name:(double) value;
++ (BOOL) report:(NSString*) name withDouble:(double) value;
 
 /**
  Posts a datapoint with a default int value of 1 and a context to the timeline[s] specified.
  @param name the name[s] of the timeline[s] to post the data point to.
  @param context the context to post along with the datapoint to the timeline.
- @return false if Errplane was not previously initialized.
+ @return false if Errplane was not previously initialized or the name exceeds 249 characters.
  */
-+ (BOOL) reportWithContext:(NSString*) name:(NSString*) context;
++ (BOOL) report:(NSString*) name withContext:(NSString*) context;
 
 /**
  Posts a datapoint with the int value and a context to the timeline[s] specified.
  @param name the name[s] of the timeline[s] to post the data point to.
  @param value the int value to post to the timeline[s].
  @param context the context to post along with the datapoint to the timeline.
- @return false if Errplane was not previously initialized.
+ @return false if Errplane was not previously initialized or the name exceeds 249 characters.
  */
-+ (BOOL) reportIntWithContext:(NSString*) name:(int) value:(NSString*) context;
++ (BOOL) report:(NSString*) name withInt:(int) value andContext:(NSString*) context;
 
 /**
  Posts a datapoint with a default int value of 1 and a context to the name[s] specified.
  @param name the name[s] of the timeline[s] to post the data point to.
  @param value the double value to post to the timeline[s].
  @param context the context to post along with the datapoint to the timeline.
+ @return false if Errplane was not previously initialized or the name exceeds 249 characters.
+ */
++ (BOOL) report:(NSString*) name withDouble:(double) value andContext:(NSString*) context;
+
+/**
+ Posts a datapoint in a time series as a result of executing the block passed in.
+ @param timedBlock the block to time while executing.
  @return false if Errplane was not previously initialized.
  */
-+ (BOOL) reportDoubleWithContext:(NSString*) name:(double) value:(NSString*) context;
++ (BOOL) time: (NSString*) name withBlock: (void(^)(void))timedBlock;
 
 @end
