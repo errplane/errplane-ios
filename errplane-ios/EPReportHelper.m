@@ -3,9 +3,11 @@
 //  errplane-ios
 //
 //  Created by Geoff Dix jr. on 2/16/13.
+//  Copyright (c) 2013 Errplane. All rights reserved.
 //
 
 #import "EPReportHelper.h"
+#import "EPBase64.h"
 
 @implementation EPReportHelper
 
@@ -47,19 +49,19 @@
     return YES;
 }
 
--(BOOL)generateBodyWithIntComment:(int) value:(NSString*) comment {
+-(BOOL)generateBodyWithInt:(int) value andContext:(NSString*) context {
     NSDate* now = [NSDate date];
     postBody = [[NSMutableString alloc] initWithString:
         [NSString stringWithFormat:@"%@ %d %ld %@", reportName,
-         value, ((long)[now timeIntervalSince1970]), comment]];
+         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
     return YES;
 }
 
--(BOOL)generateBodyWithDoubleComment:(double) value:(NSString*) comment {
+-(BOOL)generateBodyWithDouble:(double) value andContext:(NSString *)context {
     NSDate* now = [NSDate date];
     postBody = [[NSMutableString alloc] initWithString:
         [NSString stringWithFormat:@"%@ %f %ld %@", reportName,
-         value, ((long)[now timeIntervalSince1970]), comment]];
+         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
     return YES;
 }
 @end

@@ -3,6 +3,7 @@
 //  errplane-ios
 //
 //  Created by Geoff Dix jr. on 2/17/13.
+//  Copyright (c) 2013 Errplane. All rights reserved.
 //
 
 #import "ErrplaneTest.h"
@@ -26,10 +27,28 @@
 {
     [super setUp];
     
-    url = @"127.0.0.1"; 
-    apiKey = @"api_key";
-    appKey = @"testApp";
-    envKey = @"staging";
+    url = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_URL"];
+    apiKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_API"];
+    appKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_APP"];
+    envKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_ENV"];
+    
+    if (!url || !apiKey || !appKey || !envKey) {
+    
+        NSLog(@"ENV vals were null, setting to defaults!");
+        
+        [url release];
+        [apiKey release];
+        [appKey release];
+        [envKey release];
+        
+        url = @"127.0.0.1"; 
+        apiKey = @"api_key";
+        appKey = @"testApp";
+        envKey = @"staging";
+    }
+    else {
+        NSLog(@"found ENV vals, using them");
+    }
 }
 
 - (void)tearDown
@@ -122,7 +141,7 @@
     [self initErrplane];
     
     STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithIntAndContext"
-                           withInt: 37
+                           withInt: 2500
                            andContext:@"Slow Processing"], @"Failed to report data to Errplane");
     
     // wait a few for the calls to return
@@ -140,6 +159,40 @@
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
     STFail(@"add negative tests and edge cases");
+}
+
+-(void) testException {
+    [self initErrplane];
+    
+    @try {
+        [NSException raise:@"testException" format:@"Testing the exception reporting"];
+    }
+    @catch (NSException *exception) {
+        STAssertTrue([Errplane reportException:exception], @"testException failed");
+    }
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+    
+    STFail(@"add tests for Exceptions");
+}
+
+-(void) testExceptionWithCustomData {
+    [self initErrplane];
+    
+    STFail(@"add tests for Exceptions with Custom Data");
+}
+
+-(void) testExceptionWithHash {
+    [self initErrplane];
+    
+    STFail(@"add tests for Exceptions with Hash");
+}
+
+-(void) testExceptionWithHashAndCustomData {
+    [self initErrplane];
+    
+    STFail(@"add tests for Exceptions with Hash and Custom Data");
 }
 
 -(void) testTime {

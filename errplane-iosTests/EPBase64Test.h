@@ -1,8 +1,8 @@
 //
-//  ErrplaneTest.h
+//  EPBase64Test.h
 //  errplane-ios
 //
-//  Created by Geoff Dix jr. on 2/17/13.
+//  Created by Geoff Dix jr. on 2/23/13.
 //  Copyright (c) 2013 Errplane. All rights reserved.
 //
 
@@ -11,18 +11,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface ErrplaneTest : SenTestCase
-
-{
-    NSString* url;
-    NSString* apiKey;
-    NSString* appKey;
-    NSString* envKey;
-}
-
-@property (retain) NSString* url;
-@property (retain) NSString* apiKey;
-@property (retain) NSString* appKey;
-@property (retain) NSString* envKey;
+@interface EPBase64Test : SenTestCase
 
 @end

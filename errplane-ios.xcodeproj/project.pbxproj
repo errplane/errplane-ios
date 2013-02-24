@@ -20,6 +20,16 @@
 		CD0EE5F816CFCCCF00210834 /* EPHTTPPostHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */; };
 		CD0EE5F916CFCCCF00210834 /* EPHTTPPostHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */; };
 		CD0EE5FC16D0FCE700210834 /* ErrplaneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */; };
+		CD9BB19216D8E47000A2B302 /* EPBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19016D8E47000A2B302 /* EPBase64.h */; };
+		CD9BB19316D8E47000A2B302 /* EPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19116D8E47000A2B302 /* EPBase64.m */; };
+		CD9BB19716D8F2B900A2B302 /* EPBase64Test.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19616D8F2B900A2B302 /* EPBase64Test.m */; };
+		CD9BB19916DA36A700A2B302 /* EPExceptionHashProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19816DA36A700A2B302 /* EPExceptionHashProtocol.h */; };
+		CD9BB19C16DA37D400A2B302 /* EPDefaultExceptionHash.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */; };
+		CD9BB19D16DA37D400A2B302 /* EPDefaultExceptionHash.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19B16DA37D400A2B302 /* EPDefaultExceptionHash.m */; };
+		CD9BB1A016DA438F00A2B302 /* EPExceptionDetailHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19E16DA438E00A2B302 /* EPExceptionDetailHelper.h */; };
+		CD9BB1A116DA438F00A2B302 /* EPExceptionDetailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19F16DA438F00A2B302 /* EPExceptionDetailHelper.m */; };
+		CD9BB1A416DA4E0800A2B302 /* EPIOSDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB1A216DA4E0700A2B302 /* EPIOSDeviceInfo.h */; };
+		CD9BB1A516DA4E0800A2B302 /* EPIOSDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,17 @@
 		CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPHTTPPostHelper.m; sourceTree = "<group>"; };
 		CD0EE5FA16D0FCE700210834 /* ErrplaneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrplaneTest.h; sourceTree = "<group>"; };
 		CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrplaneTest.m; sourceTree = "<group>"; };
+		CD9BB19016D8E47000A2B302 /* EPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBase64.h; sourceTree = "<group>"; };
+		CD9BB19116D8E47000A2B302 /* EPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPBase64.m; sourceTree = "<group>"; };
+		CD9BB19516D8F2B900A2B302 /* EPBase64Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBase64Test.h; sourceTree = "<group>"; };
+		CD9BB19616D8F2B900A2B302 /* EPBase64Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPBase64Test.m; sourceTree = "<group>"; };
+		CD9BB19816DA36A700A2B302 /* EPExceptionHashProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPExceptionHashProtocol.h; sourceTree = "<group>"; };
+		CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPDefaultExceptionHash.h; sourceTree = "<group>"; };
+		CD9BB19B16DA37D400A2B302 /* EPDefaultExceptionHash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPDefaultExceptionHash.m; sourceTree = "<group>"; };
+		CD9BB19E16DA438E00A2B302 /* EPExceptionDetailHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPExceptionDetailHelper.h; sourceTree = "<group>"; };
+		CD9BB19F16DA438F00A2B302 /* EPExceptionDetailHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPExceptionDetailHelper.m; sourceTree = "<group>"; };
+		CD9BB1A216DA4E0700A2B302 /* EPIOSDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPIOSDeviceInfo.h; sourceTree = "<group>"; };
+		CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPIOSDeviceInfo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +150,8 @@
 				CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */,
 				CD0EE5E816CFB44000210834 /* Support */,
 				CD0EE5C216CE548600210834 /* Supporting Files */,
+				CD9BB19516D8F2B900A2B302 /* EPBase64Test.h */,
+				CD9BB19616D8F2B900A2B302 /* EPBase64Test.m */,
 			);
 			path = "errplane-iosTests";
 			sourceTree = "<group>";
@@ -149,6 +172,15 @@
 				CD0EE5E116CFAD2600210834 /* EPReportHelper.m */,
 				CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */,
 				CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */,
+				CD9BB19016D8E47000A2B302 /* EPBase64.h */,
+				CD9BB19116D8E47000A2B302 /* EPBase64.m */,
+				CD9BB19816DA36A700A2B302 /* EPExceptionHashProtocol.h */,
+				CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */,
+				CD9BB19B16DA37D400A2B302 /* EPDefaultExceptionHash.m */,
+				CD9BB19E16DA438E00A2B302 /* EPExceptionDetailHelper.h */,
+				CD9BB19F16DA438F00A2B302 /* EPExceptionDetailHelper.m */,
+				CD9BB1A216DA4E0700A2B302 /* EPIOSDeviceInfo.h */,
+				CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -170,6 +202,11 @@
 				CD0EE5D416CE5A8B00210834 /* Errplane.h in Headers */,
 				CD0EE5E216CFAD2600210834 /* EPReportHelper.h in Headers */,
 				CD0EE5F816CFCCCF00210834 /* EPHTTPPostHelper.h in Headers */,
+				CD9BB19216D8E47000A2B302 /* EPBase64.h in Headers */,
+				CD9BB19916DA36A700A2B302 /* EPExceptionHashProtocol.h in Headers */,
+				CD9BB19C16DA37D400A2B302 /* EPDefaultExceptionHash.h in Headers */,
+				CD9BB1A016DA438F00A2B302 /* EPExceptionDetailHelper.h in Headers */,
+				CD9BB1A416DA4E0800A2B302 /* EPIOSDeviceInfo.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +311,10 @@
 				CD0EE5D516CE5A8B00210834 /* Errplane.m in Sources */,
 				CD0EE5E316CFAD2600210834 /* EPReportHelper.m in Sources */,
 				CD0EE5F916CFCCCF00210834 /* EPHTTPPostHelper.m in Sources */,
+				CD9BB19316D8E47000A2B302 /* EPBase64.m in Sources */,
+				CD9BB19D16DA37D400A2B302 /* EPDefaultExceptionHash.m in Sources */,
+				CD9BB1A116DA438F00A2B302 /* EPExceptionDetailHelper.m in Sources */,
+				CD9BB1A516DA4E0800A2B302 /* EPIOSDeviceInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD0EE5FC16D0FCE700210834 /* ErrplaneTest.m in Sources */,
+				CD9BB19716D8F2B900A2B302 /* EPBase64Test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

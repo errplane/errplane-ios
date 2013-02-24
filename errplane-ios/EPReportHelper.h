@@ -3,6 +3,7 @@
 //  errplane-ios
 //
 //  Created by Geoff Dix jr. on 2/16/13.
+//  Copyright (c) 2013 Errplane. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -22,7 +23,7 @@
 -(BOOL)initWithUrlName: (NSURL*) url: (NSString*) name;
 -(BOOL)generateBodyWithInt:(int) value;
 -(BOOL)generateBodyWithDouble:(double) value;
--(BOOL)generateBodyWithIntComment:(int) value:(NSString*) comment;
--(BOOL)generateBodyWithDoubleComment:(double) value:(NSString*) comment;
+-(BOOL)generateBodyWithInt:(int) value andContext:(NSString*) context;
+-(BOOL)generateBodyWithDouble:(double) value andContext:(NSString*) context;
 
 @end

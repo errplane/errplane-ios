@@ -3,10 +3,12 @@
 //  errplane-ios
 //
 //  Created by Geoff Dix jr. on 2/15/13.
+//  Copyright (c) 2013 Errplane. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
+@class EPDefaultExceptionHash;
 
 /**
  This is the full client API for Errplane.  Before being used it must be initialized
@@ -31,6 +33,14 @@
  @return false if any of the data was null or if the url was not valid.
  */
 + (BOOL) setupWithUrlApikeyAppEnv:(NSString*) url:(NSString*) api:(NSString*) app:(NSString*) env;
+
+/**
+ Overrides the default exception hashing behavior.
+ 
+ @param hashFuncOverride a sub-class of EPDefaultExceptionHash that provides an overridden
+        hash function.
+ */
++ (void) exceptionHashOverride: (EPDefaultExceptionHash*) hashFuncOverride;
 
 /**
  Posts a datapoint with a default int value of 1 to the timeline[s] specified.
@@ -80,6 +90,42 @@
  @return false if Errplane was not previously initialized or the name exceeds 249 characters.
  */
 + (BOOL) report:(NSString*) name withDouble:(double) value andContext:(NSString*) context;
+
+/**
+ Posts an exception using either the default hash method or the overridden one (if provided).
+ @param ex the exception to report.
+ @return false if Errplane was not previously initialized.
+ */
++ (BOOL) reportException:(NSException*) ex;
+
+/**
+ Posts an exception using either the default hash method or the overridden one (if provided)
+        and the custom data supplied.
+ @param ex the exception to report.
+ @param customData the NSString to place in the custom_data section of the exception detail
+        reporting to Errplane.
+ @return false if Errplane was not previously initialized.
+ */
++ (BOOL) reportException:(NSException*) ex withCustomData: (NSString*) customData;
+
+/**
+ Posts an exception using either the hash passed in to group the exception.
+ @param ex the exception to report.
+ @param hash the overridden hash to use rather than the default.
+ @return false if Errplane was not previously initialized or the name exceeds 249 characters.
+ */
++ (BOOL) reportException:(NSException*) ex withHash:(NSString*) hash;
+
+/**
+ Posts an exception using either the default hash method or the overridden one (if provided).
+ @param ex the exception to report.
+ @param hash the overridden hash to use rather than the default.
+ @param customData the NSString to place in the custom_data section of the exception detail
+ reporting to Errplane.
+ @return false if Errplane was not previously initialized.
+ */
++ (BOOL) reportException:(NSException*) ex withHash:(NSString*) hash andCustomData:
+        (NSString*) customData;
 
 /**
  Posts a datapoint in a time series as a result of executing the block passed in.
