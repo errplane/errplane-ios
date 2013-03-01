@@ -226,9 +226,9 @@ static EPDefaultExceptionHash* hashFunc = nil;
 + (BOOL) report:(NSString*) name withDouble:(double)value andContext:(NSString *)context {
     EPReportHelper* helper = [self getHelper:name];
     
-    BOOL success = YES;
+    BOOL success = true;
     if (helper == nil) {
-        success = NO;
+        success = false;
     }
     else {
         [helper generateBodyWithDouble:value
@@ -241,39 +241,67 @@ static EPDefaultExceptionHash* hashFunc = nil;
     
 }
 
-+ (BOOL) reportException:(NSException *)ex {
++ (BOOL) exception:(NSException *)ex withHash:(NSString *)hash
+     andCustomData:(NSString *)customData {
     
     if (ex == nil) {
         return NO;
     }
     
-    NSString* hash = [hashFunc hash:ex];
-    NSString* shaHash = [self sha1:hash];
-    NSString* exDetail = [EPExceptionDetailHelper createExceptionDetail:ex
-                                                               withHash:shaHash];
+    NSString* shaHash = nil;
+    
+    if (hash) {
+        shaHash = [self sha1:hash];
+    }
+    else {
+        shaHash = [self sha1:[hashFunc hash:ex]];
+    }
     
     NSString* exceptionName = [NSString stringWithFormat:@"exceptions/%@", shaHash];
+    
+    NSString* exDetail = nil;
+    
+    if (customData) {
+        exDetail = [EPExceptionDetailHelper createExceptionDetail:ex withCustomData:customData];
+    }
+    else {
+        exDetail = [EPExceptionDetailHelper createExceptionDetail:ex];
+    }
     
     return [self report:exceptionName withContext:exDetail];
 }
 
++ (BOOL) reportException:(NSException *)ex {
+    return [self exception:ex withHash:nil andCustomData:nil];
+}
+
 + (BOOL) reportException:(NSException *)ex withCustomData:(NSString *)customData {
-    BOOL success = NO;
+    if  (!customData) {
+        return false;
+    }
     
-    return success;
+    return [self exception:ex withHash:nil andCustomData:customData];
 }
 
 + (BOOL) reportException:(NSException *)ex withHash:(NSString *)hash {
-    BOOL success = NO;
+    if (!hash) {
+        return false;
+    }
     
-    return success;
+    return [self exception:ex withHash:hash andCustomData:nil];
 }
 
 + (BOOL) reportException:(NSException *)ex withHash:(NSString *)hash
            andCustomData:(NSString *)customData {
-    BOOL success = NO;
     
-    return success;
+    if (!hash) {
+        return false;
+    }
+    if (!customData) {
+        return false;
+    }
+    
+    return [self exception:ex withHash:hash andCustomData:customData];
 }
 
 + (BOOL) time:(NSString*) name withBlock:(void (^)(void))timedBlock {

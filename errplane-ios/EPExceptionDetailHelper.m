@@ -15,38 +15,25 @@
     return [NSString stringWithFormat:@"%@}",toFinish];
 }
 
-+ (NSDictionary*) createJSONDictionary:(NSException*) ex:(NSString*) hash:(NSString*) customData {
++ (NSDictionary*) createJSONDictionary:(NSException*) ex:(NSString*) customData {
+    
+    NSString* usrAgent = [NSString stringWithFormat:@"%@ %@",[EPIOSDeviceInfo getPlatform],
+                          [EPIOSDeviceInfo getVersion]];
+    
+    NSDictionary* reqData = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    [EPIOSDeviceInfo getPlatform],@"platform",
+                                    [EPIOSDeviceInfo getVersion],@"version",
+                                    usrAgent,@"user_agent",
+                             nil];
+    
     NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     NSStringFromClass([ex class]),@"exception_class",
                                     [ex reason],@"message",
-                                    hash,@"hash",
-                                    [EPIOSDeviceInfo getPlatform],@"platform",
-                                    [EPIOSDeviceInfo getVersion],@"version",
+                                    reqData,@"request_data",
                                     customData,@"custom_data",
                                     [ex callStackSymbols],@"backtrace",
                                     nil];
     return jsonDictionary;
-}
-
-/**
- Creates the base exception detail used for all exception reporting. Ugly hand generated
-    JSON allows avoidance of external JSON libraries.  Please forgive me.
- */
-+ (NSString*) createBaseException:(NSException*)ex withHash:(NSString*)hash {
-    
-    NSMutableString* exDetail = [[NSMutableString alloc] init];
-    [exDetail appendFormat:@"{\"exception_class\":\"%@\",\"message\":\"%@\",\"hash\":\"%@\",\"session_data\":{\"platform\":\"%@\",\"version\":\"%@\"},\"backtrace\":[",NSStringFromClass([ex class]),[ex reason],hash,[EPIOSDeviceInfo getPlatform],[EPIOSDeviceInfo getVersion]];
-    int i = 0;
-    for (i = 0; i < ([[ex callStackSymbols] count] - 1); i++) {
-        [exDetail appendFormat:@"\"%@\",",[[ex callStackSymbols] objectAtIndex:i]];
-    }
-    
-    if (i > 0) {
-        [exDetail appendFormat:@"\"%@\"]",[[ex callStackSymbols] objectAtIndex:i]];
-    }
-    
-    return exDetail;
-    
 }
 
 + (NSString*) createExceptionDetailFromDictionary:(NSDictionary*)dictionary {
@@ -63,12 +50,12 @@
         else if ([obj isKindOfClass:[NSArray class]]) {// must be the backtrace
             [jsonStr appendFormat:@"\"%@\":[",[keys objectAtIndex:i]];
             int j = 0;
-            int backtraceCount = [obj count];
+            int backtraceCount = [((NSArray*) obj) count];
             for (j = 0; j < (backtraceCount-1); j++) {
-                [jsonStr appendFormat:@"\"%@\",",[obj objectAtIndex:j]];
+                [jsonStr appendFormat:@"\"%@\",",[((NSArray*) obj) objectAtIndex:j]];
             }
             if (j > 0) {
-                [jsonStr appendFormat:@"\"%@\"],",[obj objectAtIndex:j]];
+                [jsonStr appendFormat:@"\"%@\"],",[((NSArray*) obj) objectAtIndex:j]];
             }
         }
     }
@@ -80,12 +67,12 @@
         else if ([obj isKindOfClass:[NSArray class]]) {// must be the backtrace
             [jsonStr appendFormat:@"\"%@\":[",[keys objectAtIndex:i]];
             int j = 0;
-            int backtraceCount = [obj count];
+            int backtraceCount = [((NSArray*) obj) count];
             for (j = 0; j < (backtraceCount-1); j++) {
-                [jsonStr appendFormat:@"\"%@\",",[obj objectAtIndex:j]];
+                [jsonStr appendFormat:@"\"%@\",",[((NSArray*) obj) objectAtIndex:j]];
             }
             if (j > 0) {
-                [jsonStr appendFormat:@"\"%@\"]",[obj objectAtIndex:j]];
+                [jsonStr appendFormat:@"\"%@\"]",[((NSArray*) obj) objectAtIndex:j]];
             }
         }
     }
@@ -93,9 +80,9 @@
     return jsonStr;
 }
 
-+ (NSString*) createExceptionDetail:(NSException *)ex withHash:(NSString *)hash {
++ (NSString*) createExceptionDetail:(NSException *)ex {
     
-    NSDictionary* jsonDictionary = [self createJSONDictionary:ex :hash :@"{}"];
+    NSDictionary* jsonDictionary = [self createJSONDictionary:ex :@"{}"];
     if ([EPIOSDeviceInfo getMajorVersion] >= 5) {
         // use NSJSONSerialization
         NSError* error;
@@ -107,11 +94,10 @@
     
 }
 
-+ (NSString*) createExceptionDetail:(NSException *)ex withHash:(NSString *) hash
-                     andCustomData :(NSString *)customData {
++ (NSString*) createExceptionDetail:(NSException *)ex withCustomData :(NSString *)customData {
     
     
-    NSDictionary* jsonDictionary = [self createJSONDictionary:ex :hash :customData];
+    NSDictionary* jsonDictionary = [self createJSONDictionary:ex :customData];
     if ([EPIOSDeviceInfo getMajorVersion] >= 5) {
         // use NSJSONSerialization
         NSError* error;

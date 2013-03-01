@@ -165,7 +165,7 @@
     [self initErrplane];
     
     @try {
-        [NSException raise:@"testException" format:@"Testing the exception reporting"];
+        [NSException raise:@"testException" format:@"Testing default exception"];
     }
     @catch (NSException *exception) {
         STAssertTrue([Errplane reportException:exception], @"testException failed");
@@ -174,25 +174,79 @@
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
     
-    STFail(@"add tests for Exceptions");
+    STAssertFalse([Errplane reportException:nil], @"testException failed - exception was nil");
+    
+    STFail(@"add additional tests for Exceptions");
 }
 
 -(void) testExceptionWithCustomData {
     [self initErrplane];
     
-    STFail(@"add tests for Exceptions with Custom Data");
+    @try {
+        [NSException raise:@"testExceptionWithCustomData" format:@"Testing exception with custom data"];
+    }
+    @catch (NSException *exception) {
+        STAssertTrue([Errplane reportException:exception withCustomData:@"custom data is working"], @"testExceptionWithCustomData failed");
+        
+        STAssertFalse([Errplane reportException:exception withCustomData:nil],
+                      @"testExceptionWithCustomData failed - custom data was nil");
+    }
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
 }
 
 -(void) testExceptionWithHash {
     [self initErrplane];
     
-    STFail(@"add tests for Exceptions with Hash");
+    @try {
+        [NSException raise:@"testExceptionWithHash" format:@"Testing exception with passed in hash"];
+    }
+    @catch (NSException *exception) {
+        STAssertTrue([Errplane reportException:exception withHash:@"hash this"],
+                     @"testExceptionWithHash failed");
+        
+        STAssertFalse([Errplane reportException:exception withHash:nil],
+                      @"testExceptionWithHash failed - hash was nil");
+    }
+    
+    STFail(@"add additional test and confirm hash is being overridden");
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
 }
 
 -(void) testExceptionWithHashAndCustomData {
     [self initErrplane];
     
-    STFail(@"add tests for Exceptions with Hash and Custom Data");
+    @try {
+        [NSException raise:@"testExceptionWithHashAndCustomData" format:@"Testing exception with passed in hash and custom data"];
+    }
+    @catch (NSException *exception) {
+        STAssertTrue([Errplane reportException:exception withHash:@"hash this" andCustomData:
+                      @"custom data and overridden hash"],
+                     @"testExceptionWithHashAndCustomData failed");
+        
+        STAssertFalse([Errplane reportException:exception withHash:nil andCustomData:@"custom data"],
+                      @"testExceptionWithHashAndCustomData failed - hash was nil");
+        
+        STAssertFalse([Errplane reportException:exception withHash:@"hash not nil" andCustomData:nil],
+                      @"testExceptionWithHashAndCustomData failed - custom data was nil");
+        
+        STAssertFalse([Errplane reportException:exception withHash:nil andCustomData:nil],
+                      @"testExceptionWithHashAndCustomData failed - hash and custom data were nil");
+    }
+    
+    STFail(@"add additional test and confirm hash is being overridden");
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+}
+
+-(void) testExceptionWithCustomHashProtocol {
+    [self initErrplane];
+    
+    STFail(@"implement custom hash protocol to test");
 }
 
 -(void) testTime {
