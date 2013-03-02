@@ -11,8 +11,28 @@
 
 @implementation EPExceptionDetailHelper
 
-+ (NSString*) finishIt:(NSString*)toFinish {
-    return [NSString stringWithFormat:@"%@}",toFinish];
+
+static NSString* sessionUser = nil;
+static NSMutableArray* breadcrumbQueue = nil;
+static const int BC_CAPACITY = 10;
+
+
++ (void) setSessionUser:(NSString *)sessUser {
+    [sessUser retain];
+    [sessionUser release];
+    sessionUser = sessUser;
+}
+
++ (void) breadcrumb:(NSString *)bc {
+    @synchronized(self) {
+        if (!breadcrumbQueue) {
+            breadcrumbQueue = [[NSMutableArray alloc] initWithCapacity:BC_CAPACITY];
+        }
+        else if ([breadcrumbQueue count] >= BC_CAPACITY) {
+            [breadcrumbQueue removeObjectAtIndex:0];
+        }
+        [breadcrumbQueue addObject:bc];
+    }
 }
 
 + (NSDictionary*) createJSONDictionary:(NSException*) ex:(NSString*) customData {
@@ -27,6 +47,8 @@
                              nil];
     
     NSDictionary* jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    sessionUser,@"session_user",
+                                    breadcrumbQueue,@"breadcrumbs",
                                     NSStringFromClass([ex class]),@"exception_class",
                                     [ex reason],@"message",
                                     reqData,@"request_data",

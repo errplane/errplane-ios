@@ -11,8 +11,8 @@
 
 @implementation EPIOSDeviceInfo
 
-+ (NSInteger*) getMajorVersion {
-    return [[[self getVersion] componentsSeparatedByString:@"."] objectAtIndex:0];
++ (int) getMajorVersion {
+    return [((NSString*)[[[self getVersion] componentsSeparatedByString:@"."] objectAtIndex:0]) intValue];
 }
 
 + (NSString*) getVersion {

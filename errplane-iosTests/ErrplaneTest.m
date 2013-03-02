@@ -8,6 +8,7 @@
 
 #import "ErrplaneTest.h"
 #import "Errplane.h"
+#import "TestExceptionHashImpl.h"
 
 @implementation ErrplaneTest
 
@@ -62,6 +63,8 @@
     if([Errplane setupWithUrlApikeyAppEnv:url:apiKey:appKey:envKey] == NO) {
         STFail(@"Errplane setup failed!");
     }
+    
+    [Errplane setSessionUser:@"errplane-ios-test@errplane.com"];
 }
 
 - (void)testSetupErrplane {
@@ -101,7 +104,6 @@
     
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
-    STFail(@"add negative tests and edge cases");
 }
 
 -(void) testReportWithInt {
@@ -112,7 +114,6 @@
     
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
-    STFail(@"add negative tests and edge cases");
 }
 
 -(void) testReportWithDouble {
@@ -123,7 +124,6 @@
     
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
-    STFail(@"add negative tests and edge cases");
 }
 
 -(void) testReportWithContext {
@@ -134,7 +134,6 @@
     
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
-    STFail(@"add negative tests and edge cases");
 }
 
 -(void) testReportWithIntAndContext {
@@ -146,7 +145,6 @@
     
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
-    STFail(@"add negative tests and edge cases");
 }
 
 -(void) testReportWithDoubleAndContext {
@@ -158,7 +156,6 @@
     
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
-    STFail(@"add negative tests and edge cases");
 }
 
 -(void) testException {
@@ -175,8 +172,6 @@
     [NSThread sleepForTimeInterval:2];
     
     STAssertFalse([Errplane reportException:nil], @"testException failed - exception was nil");
-    
-    STFail(@"add additional tests for Exceptions");
 }
 
 -(void) testExceptionWithCustomData {
@@ -210,8 +205,6 @@
                       @"testExceptionWithHash failed - hash was nil");
     }
     
-    STFail(@"add additional test and confirm hash is being overridden");
-    
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
 }
@@ -237,8 +230,6 @@
                       @"testExceptionWithHashAndCustomData failed - hash and custom data were nil");
     }
     
-    STFail(@"add additional test and confirm hash is being overridden");
-    
     // wait a few for the calls to return
     [NSThread sleepForTimeInterval:2];
 }
@@ -246,7 +237,55 @@
 -(void) testExceptionWithCustomHashProtocol {
     [self initErrplane];
     
-    STFail(@"implement custom hash protocol to test");
+    TestExceptionHashImpl* exHash = [[TestExceptionHashImpl alloc] init];
+    [Errplane exceptionHashOverride:exHash];
+    [Errplane breadcrumb:@"exception hash impl test"];
+    
+    @try {
+        [NSException raise:@"testExceptionWithCustomHashProtocol"
+                    format:@"this should test testIng excepTionhashimp, right?"];
+    }
+    @catch (NSException *exception) {
+        STAssertTrue([Errplane reportException:exception], @"testExceptionWithCustomHashProtocol failed");
+    }
+    
+    @try {
+        [NSException raise:@"testExceptionWithCustomHashProtocol"
+                    format:@"this should use the super class hash method estIng excepTionhashimp, right?"];
+    }
+    @catch (NSException *exception) {
+        STAssertTrue([Errplane reportException:exception], @"testExceptionWithCustomHashProtocol failed");
+    }
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+    
+    
+}
+
+-(void) testExceptionWithBreadcrumbs {
+    [self initErrplane];
+    
+    for (int i = 1; i < 11; i++) {
+        [Errplane breadcrumb:[NSString stringWithFormat:@"breadcrumb %d", i]];
+    }
+    
+    @try {
+        [NSException raise:@"testExceptionWithBreadcrumbs" format:@"Testing exception with breadcrumbs."];
+    }
+    @catch (NSException *exception) {
+        STAssertTrue([Errplane reportException:exception], @"testExceptionWithBreadcrumbs failed");
+        
+        // add two more breadcrumbs to push the first two out of the queue
+        [Errplane breadcrumb:[NSString stringWithFormat:@"breadcrumb %d", 11]];
+        [Errplane breadcrumb:[NSString stringWithFormat:@"breadcrumb %d", 12]];
+        STAssertTrue([Errplane reportException:exception],
+                     @"testExceptionWithBreadcrumbs additional breadcrumbs failed");
+    }
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+    
 }
 
 -(void) testTime {
@@ -255,13 +294,38 @@
     void (^testTimeBlock) (void);
     
     testTimeBlock = ^(void) {
-        // sleep 5 secs
+        // sleep
         [NSThread sleepForTimeInterval:3];
     };
     
     STAssertTrue([Errplane time:@"unittest_errplane-ios/testTime" withBlock: testTimeBlock], @"Failed to time execution of block.");
     
-    STFail(@"add negative tests and edge cases");
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
+}
+
+-(void) testTimeWithParam {
+    [self initErrplane];
+    
+    void (^testTimeBlock) (id);
+    
+    // define the block
+    testTimeBlock = ^(NSArray* blockParam) {
+        NSLog(@"we're in the block with an array of size %d",[blockParam count]);
+        for (int i = 0; i < [blockParam count]; i++) {
+            NSArray* currArr = [((NSString*)[blockParam objectAtIndex:i]) componentsSeparatedByString:@" "];
+            
+            [NSThread sleepForTimeInterval:[((NSString*)[currArr objectAtIndex:1]) intValue]];
+        }
+    };
+    
+    NSArray* blockParam = [NSArray arrayWithObjects:@"string 2",@"string 1",@"string 2", nil];
+    
+    STAssertTrue([Errplane time:@"unittest_errplane-ios/testTimeWithParam" withBlock: testTimeBlock
+                       andParam: blockParam], @"Failed to time execution of block.");
+    
+    // wait a few for the calls to return
+    [NSThread sleepForTimeInterval:2];
 }
 
 @end

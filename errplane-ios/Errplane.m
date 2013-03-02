@@ -8,6 +8,7 @@
 
 #import "Errplane.h"
 #include <CommonCrypto/CommonDigest.h>
+#include <objc/objc-sync.h>
 
 #import "EPReportHelper.h"
 #import "EPHTTPPostHelper.h"
@@ -20,7 +21,7 @@ static NSURL* errplaneUrl = nil;
 static Errplane* sharedSingleton = nil;
 static NSMutableArray* reportQueue = nil;
 static dispatch_queue_t dispatchQueue = nil;
-static int queueCapacity = 100;
+static int RPT_CAPACITY = 100;
 static EPDefaultExceptionHash* hashFunc = nil;
 
 
@@ -33,6 +34,13 @@ static EPDefaultExceptionHash* hashFunc = nil;
         sharedSingleton = [[Errplane alloc] init];
         hashFunc = [[EPDefaultExceptionHash alloc] init];
     }
+}
+
+- (void) dealloc {
+    [errplaneUrl release];
+    [sharedSingleton release];
+    [reportQueue release];
+    [hashFunc release];
 }
 
 + (BOOL) setupWithUrlApikeyAppEnv:(NSString *)url :(NSString *)api :(NSString *)app :(NSString *)env {
@@ -51,24 +59,24 @@ static EPDefaultExceptionHash* hashFunc = nil;
         if (errplaneUrl == nil) {
             success = NO;
         }
-        reportQueue = [[NSMutableArray alloc] initWithCapacity:queueCapacity];
+        reportQueue = [[NSMutableArray alloc] initWithCapacity:RPT_CAPACITY];
         dispatchQueue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_SERIAL);
     }
     return success;
 }
 
 + (void) exceptionHashOverride:(EPDefaultExceptionHash *)hashFuncOverride {
-    if (hashFunc != nil) {
-        [hashFunc release];
-        hashFunc = hashFuncOverride;
-    }
+    [hashFuncOverride retain];
+    [hashFunc release];
+    hashFunc = hashFuncOverride;
 }
 
-- (void) dealloc {
-    [errplaneUrl release];
-    [sharedSingleton release];
-    [reportQueue release];
-    [hashFunc release];
++ (void) setSessionUser:(NSString *)sessUser {
+    [EPExceptionDetailHelper setSessionUser:sessUser];
+}
+
++ (void) breadcrumb:(NSString *)bc {
+    [EPExceptionDetailHelper breadcrumb:bc];
 }
 
 + (NSString*) sha1: (NSString*)toHash {
@@ -126,13 +134,17 @@ static EPDefaultExceptionHash* hashFunc = nil;
 + (EPReportHelper*) getHelper: (NSString*) name {
     EPReportHelper* retHelper = nil;
     
-    
-    if ([reportQueue count] < queueCapacity) {
-        if ((name != nil) && ([name length] < 250)) {
-            retHelper = [EPReportHelper alloc];
-            if ([retHelper initWithUrlName:errplaneUrl:name] != YES) {
-                [retHelper release];
-                retHelper = nil;
+    @synchronized(reportQueue) {
+        if ([reportQueue count] < RPT_CAPACITY) {
+            if ((name != nil) && ([name length] < 250)) {
+                retHelper = [EPReportHelper alloc];
+                if (![retHelper initWithUrlName:errplaneUrl:name]) {
+                    [retHelper release];
+                    retHelper = nil;
+                }
+                else {
+                    [reportQueue addObject:retHelper];
+                }
             }
         }
     }
@@ -149,7 +161,6 @@ static EPDefaultExceptionHash* hashFunc = nil;
     }
     else {
         [helper generateBodyWithInt:1];
-        [reportQueue addObject:helper];
         [self dispatchRequest:helper];
     }
     
@@ -164,7 +175,6 @@ static EPDefaultExceptionHash* hashFunc = nil;
     }
     else {
         [helper generateBodyWithInt:value];
-        [reportQueue addObject:helper];
         [self dispatchRequest:helper];
     }
     
@@ -179,7 +189,6 @@ static EPDefaultExceptionHash* hashFunc = nil;
     }
     else {
         [helper generateBodyWithDouble:value];
-        [reportQueue addObject:helper];
         [self dispatchRequest:helper];
     }
     
@@ -194,9 +203,7 @@ static EPDefaultExceptionHash* hashFunc = nil;
         success = NO;
     }
     else {
-        [helper generateBodyWithInt:1
-            andContext:context];
-        [reportQueue addObject:helper];
+        [helper generateBodyWithInt:1 andContext:context];
         [self dispatchRequest:helper];
     }
     
@@ -215,7 +222,6 @@ static EPDefaultExceptionHash* hashFunc = nil;
     else {
         [helper generateBodyWithInt:value
             andContext:context];
-        [reportQueue addObject:helper];
         [self dispatchRequest:helper];
     }
     
@@ -233,7 +239,6 @@ static EPDefaultExceptionHash* hashFunc = nil;
     else {
         [helper generateBodyWithDouble:value
             andContext:context];
-        [reportQueue addObject:helper];
         [self dispatchRequest:helper];
     }
     
@@ -306,12 +311,30 @@ static EPDefaultExceptionHash* hashFunc = nil;
 
 + (BOOL) time:(NSString*) name withBlock:(void (^)(void))timedBlock {
     
+    if (!errplaneUrl) {
+        return false;
+    }
+    
     NSDate* start = [NSDate date];
     timedBlock();
     int totalTime = (int) ([start timeIntervalSinceNow] * -1000.0);
     
     return [self report:[NSString stringWithFormat:@"timed_blocks/#{%@}", name]
                  withInt:totalTime];
+}
+
++ (BOOL) time:(NSString *)name withBlock:(void (^)(id))timedBlock andParam:(id)blockParam {
+    
+    if (!errplaneUrl) {
+        return false;
+    }
+    
+    NSDate* start = [NSDate date];
+    timedBlock(blockParam);
+    int totalTime = (int) ([start timeIntervalSinceNow] * -1000.0);
+    
+    return [self report:[NSString stringWithFormat:@"timed_blocks/#{%@}", name]
+                withInt:totalTime];
 }
 
 @end

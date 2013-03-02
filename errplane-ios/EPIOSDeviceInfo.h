@@ -12,7 +12,7 @@
 
 + (NSString*) getVersion;
 
-+ (NSInteger*) getMajorVersion;
++ (int) getMajorVersion;
 
 + (NSString*) getPlatform;
 

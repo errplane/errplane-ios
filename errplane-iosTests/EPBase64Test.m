@@ -24,8 +24,6 @@
     STAssertTrue([[EPBase64 encode: @"user={first_name:\"bob\",last_name:\"marley\",email:\"bob@bobmarley.com\"}"]
                   isEqualToString:@"dXNlcj17Zmlyc3RfbmFtZToiYm9iIixsYXN0X25hbWU6Im1hcmxleSIsZW1haWw6ImJvYkBib2JtYXJsZXkuY29tIn0="],
                  @"Base 64 encoding failed");
-    
-    STFail(@"need to add edge cases");
 }
 
 @end

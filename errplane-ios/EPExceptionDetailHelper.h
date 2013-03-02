@@ -10,6 +10,23 @@
 
 @interface EPExceptionDetailHelper : NSObject
 
+
+/**
+ The user associated with the current Errplane session.
+ 
+ @param sessUser the session user to be sent with exception details.
+ */
++ (void) setSessionUser: (NSString*) sessUser;
+
+/**
+ Leave a trail indicating what might have lead to an Exception.  The last 10 are sent
+ with exception details.  If pushing a breadcrumb on the queue when it already has
+ 10 breadcrumbs, the oldest will be popped off the back of the queue.
+ 
+ @param bc the meaningful breadcrumb to push on the queue.
+ */
++ (void) breadcrumb: (NSString*) bc;
+
 /**
  Creates an exception detail JSON string.
  

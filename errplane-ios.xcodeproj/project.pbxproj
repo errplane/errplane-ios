@@ -30,6 +30,7 @@
 		CD9BB1A116DA438F00A2B302 /* EPExceptionDetailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19F16DA438F00A2B302 /* EPExceptionDetailHelper.m */; };
 		CD9BB1A416DA4E0800A2B302 /* EPIOSDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB1A216DA4E0700A2B302 /* EPIOSDeviceInfo.h */; };
 		CD9BB1A516DA4E0800A2B302 /* EPIOSDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */; };
+		CDD72A5B16E23B3900DC703A /* TestExceptionHashImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72A5A16E23B3900DC703A /* TestExceptionHashImpl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		CD9BB19F16DA438F00A2B302 /* EPExceptionDetailHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPExceptionDetailHelper.m; sourceTree = "<group>"; };
 		CD9BB1A216DA4E0700A2B302 /* EPIOSDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPIOSDeviceInfo.h; sourceTree = "<group>"; };
 		CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPIOSDeviceInfo.m; sourceTree = "<group>"; };
+		CDD72A5916E23B3900DC703A /* TestExceptionHashImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestExceptionHashImpl.h; sourceTree = "<group>"; };
+		CDD72A5A16E23B3900DC703A /* TestExceptionHashImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestExceptionHashImpl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +191,8 @@
 		CD0EE5E816CFB44000210834 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				CDD72A5916E23B3900DC703A /* TestExceptionHashImpl.h */,
+				CDD72A5A16E23B3900DC703A /* TestExceptionHashImpl.m */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			files = (
 				CD0EE5FC16D0FCE700210834 /* ErrplaneTest.m in Sources */,
 				CD9BB19716D8F2B900A2B302 /* EPBase64Test.m in Sources */,
+				CDD72A5B16E23B3900DC703A /* TestExceptionHashImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
