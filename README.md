@@ -7,14 +7,21 @@ Installing the library
 The easiest way to get started is to download the prebuilt universal static library with headers from github at [https://github.com/errplane/errplane-ios/tree/master/errplane-ios-dist](errplane-ios.zip).
 This library was built with support for arm6 and arm7 architectures and supports iOS 4.2 and above.  After downloading follow these steps to import it into your project.
 
-1.  unzip the downloaded zip file - this will create a directory called `errplane-ios-dist`.  The directory will contain three files:
+1.  Unzip the downloaded zip file - this will create a directory called `errplane-ios-dist`.  The directory will contain three files:
 
     `EPDefaultExceptionHash.h` - used to override the default exception hash behavior (more on that later)
+    
     `Errplane.h` - the entrypoint into the errplane-ios library
+    
     `liberrplane-ios.<version>.a` - the universal static library for simulators and devices
 
-2.  open your project in Xcode and click on File-->Add Files to "<your project name>"...
-3.  
+2.  Open your project in Xcode and click on File-->Add Files to "YourProjectName"...
+3.  You should see a screen that looks like:
+
+![alt text](https://github.com/errplane/errplane-ios/blob/master/errplane-ios-dist/importLib.png Import Library Files)
+
+4.  Select the `errplane-ios-dist` directory that was created when you unzipped, checkmark the 'Destination' check box and select the 'Create groups for any added folders' radio button.
+    Also make sure to select the target[s] that will use the library.
 
 Initializing the library
 ------------------------
