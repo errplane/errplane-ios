@@ -86,6 +86,8 @@ There are four basic methods for reporting exceptions.  Again, use the ones that
     [Errplane reportException:exception withHash:@"hash this" andCustomData:
                       @"more custom data"];
 
+Timed Block Reporting
+---------------------
 
 Customizing How Exceptions Get Grouped
 --------------------------------------
