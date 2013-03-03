@@ -142,6 +142,7 @@
 		CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPHTTPPostHelper.m; sourceTree = "<group>"; };
 		CD0EE5FA16D0FCE700210834 /* ErrplaneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrplaneTest.h; sourceTree = "<group>"; };
 		CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrplaneTest.m; sourceTree = "<group>"; };
+		CD70C64716E3AA8800F63D38 /* errplane-ios-dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "errplane-ios-dist"; sourceTree = "<group>"; };
 		CD9BB19016D8E47000A2B302 /* EPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBase64.h; sourceTree = "<group>"; };
 		CD9BB19116D8E47000A2B302 /* EPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPBase64.m; sourceTree = "<group>"; };
 		CD9BB19516D8F2B900A2B302 /* EPBase64Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBase64Test.h; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 		CD0EE59D16CE548600210834 = {
 			isa = PBXGroup;
 			children = (
+				CD70C64716E3AA8800F63D38 /* errplane-ios-dist */,
 				CD0EE5AD16CE548600210834 /* errplane-ios */,
 				CD0EE5C116CE548600210834 /* errplane-iosTests */,
 				CD0EE5AA16CE548600210834 /* Frameworks */,
@@ -730,6 +732,7 @@
 				CDD72A7E16E3705300DC703A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
