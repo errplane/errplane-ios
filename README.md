@@ -2,11 +2,19 @@ Errplane
 ========
 This library integrates your applications with [Errplane](http://errplane.com), a cloud-based tool for handling exceptions, log aggregation, uptime monitoring, and alerting.
 
-Using the library
------------------
-The library can be used by either including all source files in your project or by including the Errplane.h header and (optionally) the EPDefaultExceptionHash.h header and linking with the library.
+Installing the library
+----------------------
+The easiest way to get started is to download the prebuilt universal static library with headers from github at [https://github.com/errplane/errplane-ios/tree/master/errplane-ios-dist](errplane-ios.zip).
+This library was built with support for arm6 and arm7 architectures and supports iOS 4.2 and above.  After downloading follow these steps to import it into your project.
 
-All usage of the library requires only the import of Errplane.h.
+1.  unzip the downloaded zip file - this will create a directory called `errplane-ios-dist`.  The directory will contain three files:
+
+    `EPDefaultExceptionHash.h` - used to override the default exception hash behavior (more on that later)
+    `Errplane.h` - the entrypoint into the errplane-ios library
+    `liberrplane-ios.<version>.a` - the universal static library for simulators and devices
+
+2.  open your project in Xcode and click on File-->Add Files to "<your project name>"...
+3.  
 
 Initializing the library
 ------------------------
