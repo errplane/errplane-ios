@@ -60,7 +60,7 @@
 }
 
 - (void)initErrplane {
-    if([Errplane setupWithUrlApikeyAppEnv:url:apiKey:appKey:envKey] == NO) {
+    if([Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:envKey] == NO) {
         STFail(@"Errplane setup failed!");
     }
     

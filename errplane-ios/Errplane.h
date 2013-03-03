@@ -29,10 +29,11 @@
  @param url the base url of the errplane server.
  @param api your errplane api key.
  @param app your errplane app key.
- @param env the deployment environment key (usually on of production, staging, or development).
+ @param env the deployment environment key (usually one of production, staging, or development).
  @return false if any of the data was null or if the url was not valid.
  */
-+ (BOOL) setupWithUrlApikeyAppEnv:(NSString*) url:(NSString*) api:(NSString*) app:(NSString*) env;
++ (BOOL) setupWithUrl:(NSString*) url apiKey:(NSString*) api
+                           appKey:(NSString*) app environment:(NSString*) env;
 
 /**
  Overrides the default exception hashing behavior.

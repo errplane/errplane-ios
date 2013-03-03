@@ -43,7 +43,7 @@ static EPDefaultExceptionHash* hashFunc = nil;
     [hashFunc release];
 }
 
-+ (BOOL) setupWithUrlApikeyAppEnv:(NSString *)url :(NSString *)api :(NSString *)app :(NSString *)env {
++ (BOOL) setupWithUrl:(NSString *)url apiKey:(NSString *)api appKey:(NSString *)app environment:(NSString *)env {
     
     BOOL success = YES;
     if ((url == nil) || (api == nil) || (app == nil) || (app == nil) || (env == nil)) {

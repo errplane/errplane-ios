@@ -31,6 +31,8 @@
 		CD9BB1A416DA4E0800A2B302 /* EPIOSDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB1A216DA4E0700A2B302 /* EPIOSDeviceInfo.h */; };
 		CD9BB1A516DA4E0800A2B302 /* EPIOSDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */; };
 		CDD72A5B16E23B3900DC703A /* TestExceptionHashImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72A5A16E23B3900DC703A /* TestExceptionHashImpl.m */; };
+		CDD72A5E16E2DFF300DC703A /* EPDefaultExceptionHash.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */; };
+		CDD72A5F16E2DFFA00DC703A /* Errplane.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,20 @@
 			remoteInfo = "errplane-ios";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CDD72A5D16E2DF9A00DC703A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				CDD72A5F16E2DFFA00DC703A /* Errplane.h in CopyFiles */,
+				CDD72A5E16E2DFF300DC703A /* EPDefaultExceptionHash.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CD0EE5A816CE548600210834 /* liberrplane-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liberrplane-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +241,7 @@
 				CD0EE5A416CE548600210834 /* Sources */,
 				CD0EE5A516CE548600210834 /* Frameworks */,
 				CD0EE5A616CE548600210834 /* Headers */,
+				CDD72A5D16E2DF9A00DC703A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -398,24 +415,28 @@
 		CD0EE5CD16CE548600210834 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1.0;
 				DSTROOT = /tmp/errplane_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		CD0EE5CE16CE548600210834 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1.0;
 				DSTROOT = /tmp/errplane_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
