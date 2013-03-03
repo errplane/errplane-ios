@@ -67,33 +67,39 @@
     [Errplane setSessionUser:@"errplane-ios-test@errplane.com"];
 }
 
+-(void) addBcs {
+    for (int i = 0; i < 10000; i++) {
+        [Errplane breadcrumb:[NSString stringWithFormat:@"breadcrumb %d", i]];
+    }
+}
+
 - (void)testSetupErrplane {
     
     // nothing null - should succeed
-    STAssertTrue([Errplane setupWithUrlApikeyAppEnv:url:apiKey:appKey:envKey],
+    STAssertTrue([Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:envKey],
                  @"Setup failed on good data");
     
     // null url
-    STAssertFalse([Errplane setupWithUrlApikeyAppEnv:nil:apiKey:appKey:envKey],
-                  @"Setup succeeded on null url");
+    STAssertFalse([Errplane setupWithUrl:nil apiKey:apiKey appKey:appKey environment:envKey],
+                  @"Setup succeeded on nil url");
     
     // null apiKey
-    STAssertFalse([Errplane setupWithUrlApikeyAppEnv:url:nil:appKey:envKey],
-                  @"Setup succeeded on null api key");
+    STAssertFalse([Errplane setupWithUrl:url apiKey:nil appKey:appKey environment:envKey],
+                  @"Setup succeeded on nil api key");
     
     // null appKey
-    STAssertFalse([Errplane setupWithUrlApikeyAppEnv:url:apiKey:nil:envKey],
-                  @"Setup succeeded on null app");
+    STAssertFalse([Errplane setupWithUrl:url apiKey:apiKey appKey:nil environment:envKey],
+                  @"Setup succeeded on nil app");
     
     // null envKey
-    STAssertFalse([Errplane setupWithUrlApikeyAppEnv:url:apiKey:appKey:nil],
-                  @"Setup succeeded on null env");
+    STAssertFalse([Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:nil],
+                  @"Setup succeeded on nil env");
     
     
     // malformed url
     NSString* badUrl = @"https:// ";
     
-    STAssertFalse([Errplane setupWithUrlApikeyAppEnv:badUrl:apiKey:appKey:envKey],
+    STAssertFalse([Errplane setupWithUrl:badUrl apiKey:apiKey appKey:appKey environment:envKey],
                   @"Setup succeeded on malformed url");
 }
 
@@ -281,6 +287,9 @@
         [Errplane breadcrumb:[NSString stringWithFormat:@"breadcrumb %d", 12]];
         STAssertTrue([Errplane reportException:exception],
                      @"testExceptionWithBreadcrumbs additional breadcrumbs failed");
+        [self addBcs];
+        STAssertTrue([Errplane reportException:exception],
+                     @"testExceptionWithBreadcrumbs big bunch of breadcrumbs failed");
     }
     
     // wait a few for the calls to return

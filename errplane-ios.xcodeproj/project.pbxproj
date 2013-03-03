@@ -6,12 +6,29 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		CDD72A7B16E3705300DC703A /* Build and Merge libs */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CDD72A7C16E3705300DC703A /* Build configuration list for PBXAggregateTarget "Build and Merge libs" */;
+			buildPhases = (
+				CDD72A8316E370B600DC703A /* ShellScript */,
+				CDD72A8416E370C100DC703A /* CopyFiles */,
+				CDD72A8516E370C300DC703A /* ShellScript */,
+			);
+			dependencies = (
+				CDD72A8016E3709C00DC703A /* PBXTargetDependency */,
+			);
+			name = "Build and Merge libs";
+			productName = "Build and Merge libs";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		CD0EE5AC16CE548600210834 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5AB16CE548600210834 /* Foundation.framework */; };
 		CD0EE5BA16CE548600210834 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5B916CE548600210834 /* SenTestingKit.framework */; };
 		CD0EE5BC16CE548600210834 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5BB16CE548600210834 /* UIKit.framework */; };
 		CD0EE5BD16CE548600210834 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5AB16CE548600210834 /* Foundation.framework */; };
-		CD0EE5C016CE548600210834 /* liberrplane-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5A816CE548600210834 /* liberrplane-ios.a */; };
+		CD0EE5C016CE548600210834 /* liberrplane-ios.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */; };
 		CD0EE5C616CE548600210834 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD0EE5C416CE548600210834 /* InfoPlist.strings */; };
 		CD0EE5D416CE5A8B00210834 /* Errplane.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
 		CD0EE5D516CE5A8B00210834 /* Errplane.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5D316CE5A8B00210834 /* Errplane.m */; };
@@ -33,10 +50,37 @@
 		CDD72A5B16E23B3900DC703A /* TestExceptionHashImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD72A5A16E23B3900DC703A /* TestExceptionHashImpl.m */; };
 		CDD72A5E16E2DFF300DC703A /* EPDefaultExceptionHash.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */; };
 		CDD72A5F16E2DFFA00DC703A /* Errplane.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
+		CDD72A6216E36EE000DC703A /* Errplane.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5D316CE5A8B00210834 /* Errplane.m */; };
+		CDD72A6316E36EE000DC703A /* EPReportHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5E116CFAD2600210834 /* EPReportHelper.m */; };
+		CDD72A6416E36EE000DC703A /* EPHTTPPostHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */; };
+		CDD72A6516E36EE000DC703A /* EPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19116D8E47000A2B302 /* EPBase64.m */; };
+		CDD72A6616E36EE000DC703A /* EPDefaultExceptionHash.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19B16DA37D400A2B302 /* EPDefaultExceptionHash.m */; };
+		CDD72A6716E36EE000DC703A /* EPExceptionDetailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19F16DA438F00A2B302 /* EPExceptionDetailHelper.m */; };
+		CDD72A6816E36EE000DC703A /* EPIOSDeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */; };
+		CDD72A6A16E36EE000DC703A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5AB16CE548600210834 /* Foundation.framework */; };
+		CDD72A6C16E36EE000DC703A /* Errplane.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
+		CDD72A6D16E36EE000DC703A /* EPReportHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5E016CFAD2600210834 /* EPReportHelper.h */; };
+		CDD72A6E16E36EE000DC703A /* EPHTTPPostHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */; };
+		CDD72A6F16E36EE000DC703A /* EPBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19016D8E47000A2B302 /* EPBase64.h */; };
+		CDD72A7016E36EE000DC703A /* EPExceptionHashProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19816DA36A700A2B302 /* EPExceptionHashProtocol.h */; };
+		CDD72A7116E36EE000DC703A /* EPDefaultExceptionHash.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */; };
+		CDD72A7216E36EE000DC703A /* EPExceptionDetailHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19E16DA438E00A2B302 /* EPExceptionDetailHelper.h */; };
+		CDD72A7316E36EE000DC703A /* EPIOSDeviceInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB1A216DA4E0700A2B302 /* EPIOSDeviceInfo.h */; };
+		CDD72A7516E36EE000DC703A /* Errplane.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
+		CDD72A7616E36EE000DC703A /* EPDefaultExceptionHash.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */; };
+		CDD72A8616E3716E00DC703A /* EPDefaultExceptionHash.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD9BB19A16DA37D400A2B302 /* EPDefaultExceptionHash.h */; };
+		CDD72A9116E37F7C00DC703A /* Errplane.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		CD0EE5BE16CE548600210834 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CD0EE59F16CE548600210834 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CD0EE5A716CE548600210834;
+			remoteInfo = "errplane-ios";
+		};
+		CDD72A7F16E3709C00DC703A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CD0EE59F16CE548600210834 /* Project object */;
 			proxyType = 1;
@@ -57,10 +101,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDD72A7416E36EE000DC703A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				CDD72A7516E36EE000DC703A /* Errplane.h in CopyFiles */,
+				CDD72A7616E36EE000DC703A /* EPDefaultExceptionHash.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD72A8416E370C100DC703A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${TARGET_BUILD_DIR}/../errplane-ios-dist";
+			dstSubfolderSpec = 0;
+			files = (
+				CDD72A9116E37F7C00DC703A /* Errplane.h in CopyFiles */,
+				CDD72A8616E3716E00DC703A /* EPDefaultExceptionHash.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CD0EE5A816CE548600210834 /* liberrplane-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liberrplane-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liberrplane-ios.1.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0EE5AB16CE548600210834 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD0EE5AF16CE548600210834 /* errplane-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "errplane-ios-Prefix.pch"; sourceTree = "<group>"; };
 		CD0EE5B816CE548600210834 /* errplane-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "errplane-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +155,7 @@
 		CD9BB1A316DA4E0700A2B302 /* EPIOSDeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPIOSDeviceInfo.m; sourceTree = "<group>"; };
 		CDD72A5916E23B3900DC703A /* TestExceptionHashImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestExceptionHashImpl.h; sourceTree = "<group>"; };
 		CDD72A5A16E23B3900DC703A /* TestExceptionHashImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestExceptionHashImpl.m; sourceTree = "<group>"; };
+		CDD72A7A16E36EE000DC703A /* liberrplane-ios-sim.1.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liberrplane-ios-sim.1.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +174,15 @@
 				CD0EE5BA16CE548600210834 /* SenTestingKit.framework in Frameworks */,
 				CD0EE5BC16CE548600210834 /* UIKit.framework in Frameworks */,
 				CD0EE5BD16CE548600210834 /* Foundation.framework in Frameworks */,
-				CD0EE5C016CE548600210834 /* liberrplane-ios.a in Frameworks */,
+				CD0EE5C016CE548600210834 /* liberrplane-ios.1.0.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDD72A6916E36EE000DC703A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD72A6A16E36EE000DC703A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,8 +202,9 @@
 		CD0EE5A916CE548600210834 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD0EE5A816CE548600210834 /* liberrplane-ios.a */,
+				CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */,
 				CD0EE5B816CE548600210834 /* errplane-iosTests.octest */,
+				CDD72A7A16E36EE000DC703A /* liberrplane-ios-sim.1.0.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +307,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDD72A6B16E36EE000DC703A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD72A6C16E36EE000DC703A /* Errplane.h in Headers */,
+				CDD72A6D16E36EE000DC703A /* EPReportHelper.h in Headers */,
+				CDD72A6E16E36EE000DC703A /* EPHTTPPostHelper.h in Headers */,
+				CDD72A6F16E36EE000DC703A /* EPBase64.h in Headers */,
+				CDD72A7016E36EE000DC703A /* EPExceptionHashProtocol.h in Headers */,
+				CDD72A7116E36EE000DC703A /* EPDefaultExceptionHash.h in Headers */,
+				CDD72A7216E36EE000DC703A /* EPExceptionDetailHelper.h in Headers */,
+				CDD72A7316E36EE000DC703A /* EPIOSDeviceInfo.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -249,7 +340,7 @@
 			);
 			name = "errplane-ios";
 			productName = "errplane-ios";
-			productReference = CD0EE5A816CE548600210834 /* liberrplane-ios.a */;
+			productReference = CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CD0EE5B716CE548600210834 /* errplane-iosTests */ = {
@@ -270,6 +361,24 @@
 			productName = "errplane-iosTests";
 			productReference = CD0EE5B816CE548600210834 /* errplane-iosTests.octest */;
 			productType = "com.apple.product-type.bundle";
+		};
+		CDD72A6016E36EE000DC703A /* errplane-ios-sim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD72A7716E36EE000DC703A /* Build configuration list for PBXNativeTarget "errplane-ios-sim" */;
+			buildPhases = (
+				CDD72A6116E36EE000DC703A /* Sources */,
+				CDD72A6916E36EE000DC703A /* Frameworks */,
+				CDD72A6B16E36EE000DC703A /* Headers */,
+				CDD72A7416E36EE000DC703A /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "errplane-ios-sim";
+			productName = "errplane-ios";
+			productReference = CDD72A7A16E36EE000DC703A /* liberrplane-ios-sim.1.0.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -294,6 +403,8 @@
 			targets = (
 				CD0EE5A716CE548600210834 /* errplane-ios */,
 				CD0EE5B716CE548600210834 /* errplane-iosTests */,
+				CDD72A6016E36EE000DC703A /* errplane-ios-sim */,
+				CDD72A7B16E3705300DC703A /* Build and Merge libs */,
 			);
 		};
 /* End PBXProject section */
@@ -323,6 +434,32 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		CDD72A8316E370B600DC703A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# make a new output folder\nmkdir -p ${TARGET_BUILD_DIR}/../errplane-ios-dist\n\n# combine lib files for various platforms into one\nlipo -create \"${TARGET_BUILD_DIR}/../Debug-iphoneos/liberrplane-ios.${CURRENT_PROJECT_VERSION}.a\" \"${TARGET_BUILD_DIR}/../Debug-iphonesimulator/liberrplane-ios.${CURRENT_PROJECT_VERSION}.a\" -output \"${TARGET_BUILD_DIR}/../errplane-ios-dist/liberrplane-ios.${CURRENT_PROJECT_VERSION}.a\"";
+		};
+		CDD72A8516E370C300DC703A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ditto -c -k --keepParent \"${TARGET_BUILD_DIR}/../errplane-ios-dist\" \"${TARGET_BUILD_DIR}/../errplane-ios.${CURRENT_PROJECT_VERSION}.zip\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -350,6 +487,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDD72A6116E36EE000DC703A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD72A6216E36EE000DC703A /* Errplane.m in Sources */,
+				CDD72A6316E36EE000DC703A /* EPReportHelper.m in Sources */,
+				CDD72A6416E36EE000DC703A /* EPHTTPPostHelper.m in Sources */,
+				CDD72A6516E36EE000DC703A /* EPBase64.m in Sources */,
+				CDD72A6616E36EE000DC703A /* EPDefaultExceptionHash.m in Sources */,
+				CDD72A6716E36EE000DC703A /* EPExceptionDetailHelper.m in Sources */,
+				CDD72A6816E36EE000DC703A /* EPIOSDeviceInfo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -357,6 +508,11 @@
 			isa = PBXTargetDependency;
 			target = CD0EE5A716CE548600210834 /* errplane-ios */;
 			targetProxy = CD0EE5BE16CE548600210834 /* PBXContainerItemProxy */;
+		};
+		CDD72A8016E3709C00DC703A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CD0EE5A716CE548600210834 /* errplane-ios */;
+			targetProxy = CDD72A7F16E3709C00DC703A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -378,6 +534,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -401,6 +558,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 1.0;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -415,12 +573,17 @@
 		CD0EE5CD16CE548600210834 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CURRENT_PROJECT_VERSION = 1.0;
 				DSTROOT = /tmp/errplane_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME).${CURRENT_PROJECT_VERSION}";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -429,12 +592,17 @@
 		CD0EE5CE16CE548600210834 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				CURRENT_PROJECT_VERSION = 1.0;
 				DSTROOT = /tmp/errplane_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(TARGET_NAME).${CURRENT_PROJECT_VERSION}";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -472,6 +640,50 @@
 			};
 			name = Release;
 		};
+		CDD72A7816E36EE000DC703A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1.0;
+				DSTROOT = /tmp/errplane_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME).${CURRENT_PROJECT_VERSION}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CDD72A7916E36EE000DC703A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1.0;
+				DSTROOT = /tmp/errplane_ios.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME).${CURRENT_PROJECT_VERSION}";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CDD72A7D16E3705300DC703A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CDD72A7E16E3705300DC703A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -501,6 +713,23 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		CDD72A7716E36EE000DC703A /* Build configuration list for PBXNativeTarget "errplane-ios-sim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD72A7816E36EE000DC703A /* Debug */,
+				CDD72A7916E36EE000DC703A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD72A7C16E3705300DC703A /* Build configuration list for PBXAggregateTarget "Build and Merge libs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD72A7D16E3705300DC703A /* Debug */,
+				CDD72A7E16E3705300DC703A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

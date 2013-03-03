@@ -105,7 +105,8 @@ static const int BC_CAPACITY = 10;
 + (NSString*) createExceptionDetail:(NSException *)ex {
     
     NSDictionary* jsonDictionary = [self createJSONDictionary:ex :@"{}"];
-    if ([EPIOSDeviceInfo getMajorVersion] >= 5) {
+    Class jsonSerializationClass = NSClassFromString(@"NSJSONSerialization");
+    if (jsonSerializationClass) {
         // use NSJSONSerialization
         NSError* error;
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:nil error:&error];
@@ -120,7 +121,8 @@ static const int BC_CAPACITY = 10;
     
     
     NSDictionary* jsonDictionary = [self createJSONDictionary:ex :customData];
-    if ([EPIOSDeviceInfo getMajorVersion] >= 5) {
+    Class jsonSerializationClass = NSClassFromString(@"NSJSONSerialization");
+    if (jsonSerializationClass) {
         // use NSJSONSerialization
         NSError* error;
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:nil error:&error];

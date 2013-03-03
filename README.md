@@ -11,12 +11,14 @@ All usage of the library requires only the import of Errplane.h.
 Initializing the library
 ------------------------
 The library is initialized with the following arguments:
+
     url: the base Errplane url (e.g. - http://errplane.com/)
     api: your api_key used to verify Errplane usage
     app: your app name configured in Errplane
     env: the environment you are using (usually one of: production, staging, development)
 
 Once these are known the library is initialized using:
+
     BOOL success = [Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:envKey];
 
 success is true if none of the values passed in were nil and if the url was valid.
