@@ -18,7 +18,7 @@ This library was built with support for arm6 and arm7 architectures and supports
 2.  Open your project in Xcode and click on File-->Add Files to "YourProjectName"...
 3.  You should see a screen that looks like:
 
-![alt text](https://github.com/errplane/errplane-ios/blob/master/errplane-ios-dist/importLib.png "Import Library Files")
+    ![alt text](https://github.com/errplane/errplane-ios/blob/master/errplane-ios-dist/importLib.png "Import Library Files")
 
 4.  Select the `errplane-ios-dist` directory that was created when you unzipped, checkmark the 'Destination' check box and select the 'Create groups for any added folders' radio button.
     Also make sure to select the target[s] that will use the library.
