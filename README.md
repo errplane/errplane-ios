@@ -4,7 +4,7 @@ This library integrates your applications with [Errplane](http://errplane.com), 
 
 Installing the library
 ----------------------
-The easiest way to get started is to download the prebuilt universal static library with headers from github at [https://github.com/errplane/errplane-ios/tree/master/errplane-ios-dist](errplane-ios.zip).
+The easiest way to get started is to download the prebuilt universal static library with headers from github at [https://github.com/errplane/errplane-ios/errplane-ios-dist](errplane-ios.zip).
 This library was built with support for arm6 and arm7 architectures and supports iOS 4.2 and above.  After downloading follow these steps to import it into your project.
 
 1.  Unzip the downloaded zip file - this will create a directory called `errplane-ios-dist`.  The directory will contain three files:
