@@ -35,7 +35,8 @@ The library is initialized with the following arguments:
 
 Using these values the library is initialized using:
 
-    BOOL success = [Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:envKey];
+    // all parameters are type NSString*
+    BOOL success = [Errplane setupWithUrl:url apiKey:api appKey:app environment:env];
 
 success is true if none of the values passed in were nil and if the url was valid.
 
@@ -46,7 +47,7 @@ Additionally, to set a session user to better trace exceptions reported to Errpl
 Reporting
 ---------
 Errplane allows you to report any amount of useful numeric and context relevant data that can be used for analyzing performance and usage of your application.
-There are six methods used for reporting - use the methods that make the most sense for your application.  For each reporting method, the name passed in to the `[Errplane time]` selectors must be < 250 characters.
+There are six methods used for reporting - use the methods that make the most sense for your application.  For each reporting method, the name passed in to the `[Errplane report]` selectors must be < 250 characters.
 The following are simple examples for each method:
 
     // simple reporting (default int value of 1 is sent to Errplane)
