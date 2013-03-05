@@ -63,42 +63,49 @@ static const int BC_CAPACITY = 10;
     [jsonStr appendFormat:@"{"];
     NSArray* keys = [dictionary allKeys];
     int keyCount = [keys count];
-    int i = 0;
-    for (i = 0; i < (keyCount-1); i++) {
-        NSObject* obj = [dictionary objectForKey:[keys objectAtIndex:i]];
-        if ([obj isKindOfClass:[NSString class]]) {
-            [jsonStr appendFormat:@"\"%@\":\"%@\",",[keys objectAtIndex:i],obj];
-        }
-        else if ([obj isKindOfClass:[NSArray class]]) {// must be the backtrace
-            [jsonStr appendFormat:@"\"%@\":[",[keys objectAtIndex:i]];
-            int j = 0;
-            int backtraceCount = [((NSArray*) obj) count];
-            for (j = 0; j < (backtraceCount-1); j++) {
-                [jsonStr appendFormat:@"\"%@\",",[((NSArray*) obj) objectAtIndex:j]];
-            }
-            if (j > 0) {
-                [jsonStr appendFormat:@"\"%@\"],",[((NSArray*) obj) objectAtIndex:j]];
-            }
-        }
-    }
-    if (i > 0) {
+    for (int i = 0; i < keyCount; i++) {
         NSObject* obj = [dictionary objectForKey:[keys objectAtIndex:i]];
         if ([obj isKindOfClass:[NSString class]]) {
             [jsonStr appendFormat:@"\"%@\":\"%@\"",[keys objectAtIndex:i],obj];
         }
-        else if ([obj isKindOfClass:[NSArray class]]) {// must be the backtrace
+        else if ([obj isKindOfClass:[NSArray class]]) {// backtrace or breadcrumbs
             [jsonStr appendFormat:@"\"%@\":[",[keys objectAtIndex:i]];
-            int j = 0;
-            int backtraceCount = [((NSArray*) obj) count];
-            for (j = 0; j < (backtraceCount-1); j++) {
-                [jsonStr appendFormat:@"\"%@\",",[((NSArray*) obj) objectAtIndex:j]];
-            }
-            if (j > 0) {
-                [jsonStr appendFormat:@"\"%@\"]",[((NSArray*) obj) objectAtIndex:j]];
+            int arrayCount = [((NSArray*) obj) count];
+            for (int j = 0; j < arrayCount; j++) {
+                [jsonStr appendFormat:@"\"%@\"",[((NSArray*) obj) objectAtIndex:j]];
+                if (j < (arrayCount-1)) {
+                    [jsonStr appendFormat:@","];
+                }
+                else {
+                    [jsonStr appendFormat:@"]"];
+                }
             }
         }
+        else if ([obj isKindOfClass:[NSDictionary class]]) {
+            [jsonStr appendFormat:@"\"%@\":{",[keys objectAtIndex:i]];
+            NSArray* subKeys = [((NSDictionary*) obj) allKeys];
+            int subKeyCount = [subKeys count];
+            for (int j=0; j < subKeyCount; j++) {
+                NSObject* subObj = [((NSDictionary*)obj) objectForKey:[subKeys objectAtIndex:j]];
+                if ([subObj isKindOfClass:[NSString class]]) {
+                    [jsonStr appendFormat:@"\"%@\":\"%@\"",[subKeys objectAtIndex:j],subObj];
+                }
+                if (j < (subKeyCount-1)) {
+                    [jsonStr appendFormat:@","];
+                }
+                else {
+                    [jsonStr appendFormat:@"}"];
+                }
+            }
+        }
+        
+        if (i < (keyCount-1)) {
+            [jsonStr appendFormat:@","];
+        }
+        else {
+            [jsonStr appendFormat:@"}"];
+        }
     }
-    [jsonStr appendFormat:@"}"];
     return jsonStr;
 }
 

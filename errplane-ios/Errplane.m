@@ -18,7 +18,10 @@
 @implementation Errplane
 
 static NSURL* errplaneUrl = nil;
-static Errplane* sharedSingleton = nil;
+
+// default Errplane url
+static NSString* urlStr = nil;
+
 static NSMutableArray* reportQueue = nil;
 static dispatch_queue_t dispatchQueue = nil;
 static int RPT_CAPACITY = 100;
@@ -31,26 +34,30 @@ static EPDefaultExceptionHash* hashFunc = nil;
     if(!initialized)
     {
         initialized = YES;
-        sharedSingleton = [[Errplane alloc] init];
         hashFunc = [[EPDefaultExceptionHash alloc] init];
+        urlStr = @"https://apiv2.errplane.com/databases/";
     }
 }
 
 - (void) dealloc {
     [errplaneUrl release];
-    [sharedSingleton release];
     [reportQueue release];
     [hashFunc release];
 }
 
-+ (BOOL) setupWithUrl:(NSString *)url apiKey:(NSString *)api appKey:(NSString *)app environment:(NSString *)env {
++ (BOOL) initWithApiKey:(NSString *)api appKey:(NSString *)app environment:(NSString *)env {
     
     BOOL success = YES;
-    if ((url == nil) || (api == nil) || (app == nil) || (app == nil) || (env == nil)) {
+    if ((api == nil) || (app == nil) || (app == nil) || (env == nil)) {
         success = NO;
     }
     else {
-        NSMutableString* errplaneUrlStr = [[NSMutableString alloc] initWithString:url];
+        // this could be a re-init
+        if (errplaneUrl) {
+            [errplaneUrl release];
+        }
+        
+        NSMutableString* errplaneUrlStr = [[NSMutableString alloc] initWithString:urlStr];
         [errplaneUrlStr appendString:app];
         [errplaneUrlStr appendString:env];
         [errplaneUrlStr appendString:@"/points?api_key="];
@@ -63,6 +70,12 @@ static EPDefaultExceptionHash* hashFunc = nil;
         dispatchQueue = dispatch_queue_create("myQueue", DISPATCH_QUEUE_SERIAL);
     }
     return success;
+}
+
++ (void) setUrl:(NSString *)url {
+    [url retain];
+    [urlStr release];
+    urlStr = url;
 }
 
 + (void) exceptionHashOverride:(EPDefaultExceptionHash *)hashFuncOverride {

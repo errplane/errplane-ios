@@ -20,7 +20,7 @@
 }
 
 + (NSString*) getPlatform {
-    return [[UIDevice currentDevice] name];
+    return [[UIDevice currentDevice] model];
 }
 
 @end

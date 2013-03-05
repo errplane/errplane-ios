@@ -12,13 +12,11 @@
 
 @implementation ErrplaneTest
 
-@synthesize url;
 @synthesize apiKey;
 @synthesize appKey;
 @synthesize envKey;
 
 - (void) dealloc {
-    [url release];
     [apiKey release];
     [appKey release];
     [envKey release];
@@ -28,21 +26,18 @@
 {
     [super setUp];
     
-    url = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_URL"];
     apiKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_API"];
     appKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_APP"];
     envKey = [[[NSProcessInfo processInfo] environment] objectForKey:@"EP_ENV"];
     
-    if (!url || !apiKey || !appKey || !envKey) {
+    if (!apiKey || !appKey || !envKey) {
     
         NSLog(@"ENV vals were null, setting to defaults!");
         
-        [url release];
         [apiKey release];
         [appKey release];
         [envKey release];
         
-        url = @"127.0.0.1"; 
         apiKey = @"api_key";
         appKey = @"testApp";
         envKey = @"staging";
@@ -60,7 +55,7 @@
 }
 
 - (void)initErrplane {
-    if([Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:envKey] == NO) {
+    if(![Errplane initWithApiKey:apiKey appKey:appKey environment:envKey]) {
         STFail(@"Errplane setup failed!");
     }
     
@@ -76,31 +71,20 @@
 - (void)testSetupErrplane {
     
     // nothing null - should succeed
-    STAssertTrue([Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:envKey],
+    STAssertTrue([Errplane initWithApiKey:apiKey appKey:appKey environment:envKey],
                  @"Setup failed on good data");
     
-    // null url
-    STAssertFalse([Errplane setupWithUrl:nil apiKey:apiKey appKey:appKey environment:envKey],
-                  @"Setup succeeded on nil url");
-    
     // null apiKey
-    STAssertFalse([Errplane setupWithUrl:url apiKey:nil appKey:appKey environment:envKey],
+    STAssertFalse([Errplane initWithApiKey:nil appKey:appKey environment:envKey],
                   @"Setup succeeded on nil api key");
     
     // null appKey
-    STAssertFalse([Errplane setupWithUrl:url apiKey:apiKey appKey:nil environment:envKey],
+    STAssertFalse([Errplane initWithApiKey:apiKey appKey:nil environment:envKey],
                   @"Setup succeeded on nil app");
     
     // null envKey
-    STAssertFalse([Errplane setupWithUrl:url apiKey:apiKey appKey:appKey environment:nil],
+    STAssertFalse([Errplane initWithApiKey:apiKey appKey:appKey environment:nil],
                   @"Setup succeeded on nil env");
-    
-    
-    // malformed url
-    NSString* badUrl = @"https:// ";
-    
-    STAssertFalse([Errplane setupWithUrl:badUrl apiKey:apiKey appKey:appKey environment:envKey],
-                  @"Setup succeeded on malformed url");
 }
 
 -(void) testReport {

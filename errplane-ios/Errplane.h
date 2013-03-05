@@ -26,14 +26,19 @@
 /**
  Initializes Errplane for future requests.
  
- @param url the base url of the errplane server.
  @param api your errplane api key.
  @param app your errplane app key.
  @param env the deployment environment key (usually one of production, staging, or development).
- @return false if any of the data was null or if the url was not valid.
+ @return false if any of the data was null.
  */
-+ (BOOL) setupWithUrl:(NSString*) url apiKey:(NSString*) api
-                           appKey:(NSString*) app environment:(NSString*) env;
++ (BOOL) initWithApiKey:(NSString*)api appKey:(NSString*)app environment:(NSString*)env;
+
+/**
+ Overrides the default base URL - should be called prior to initWithApiKey.
+ 
+ @param url the url to use instead of the base url.
+ */
++ (void) setUrl:(NSString*) url;
 
 /**
  Overrides the default exception hashing behavior.

@@ -14,13 +14,11 @@
 @interface ErrplaneTest : SenTestCase
 
 {
-    NSString* url;
     NSString* apiKey;
     NSString* appKey;
     NSString* envKey;
 }
 
-@property (retain) NSString* url;
 @property (retain) NSString* apiKey;
 @property (retain) NSString* appKey;
 @property (retain) NSString* envKey;
