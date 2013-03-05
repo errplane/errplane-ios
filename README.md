@@ -28,7 +28,6 @@ Initializing the library
 ------------------------
 The library is initialized with the following arguments:
 
-    url: the base Errplane url (e.g. - http://errplane.com/)
     api: your api_key used to verify Errplane usage
     app: your app name configured in Errplane
     env: the environment you are using (usually one of: production, staging, development)
@@ -36,11 +35,11 @@ The library is initialized with the following arguments:
 Using these values the library is initialized using:
 
     // all parameters are type NSString*
-    BOOL success = [Errplane setupWithUrl:url apiKey:api appKey:app environment:env];
+    BOOL success = [Errplane initWithApiKey:api appKey:app environment:env];
 
-success is true if none of the values passed in were nil and if the url was valid.
+success is true if none of the values passed in were nil.
 
-Additionally, to set a session user to better trace exceptions reported to Errplane the following can be used:
+Additionally, to set a session user to better trace exceptions reported to Errplane the following can (and should) be used:
 
     [Errplane setSessionUser:@"string that identifies the current user"];
 
@@ -92,7 +91,7 @@ There are four basic methods for reporting exceptions.  Again, use the ones that
 Breadcrumbs
 -----------
 Breadcrumbs are useful for providing checkpoints for your app leading up to the point where an exception is thrown.  The Errplane library
-stores the last 10 breadcrumbs you provide and sends them along when you report an exception:
+stores the last 10 breadcrumbs you provide and automatically sends them along when you report an exception:
 
     [Errplane breadcrumb:@"Did this path of execution lead to the exception?"];
     [Errplane breadcrumb:@"maybe this one instead?"];
