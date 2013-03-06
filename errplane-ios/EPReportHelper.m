@@ -37,31 +37,41 @@
 
 -(BOOL)generateBodyWithInt: (int) value {
     NSDate* now = [NSDate date];
+//    postBody = [[NSMutableString alloc] initWithString:
+//                [NSString stringWithFormat:@"%@ %d %ld", reportName, value, ((long)[now timeIntervalSince1970])]];
     postBody = [[NSMutableString alloc] initWithString:
-                [NSString stringWithFormat:@"%@ %d %ld", reportName, value, ((long)[now timeIntervalSince1970])]];
+                [NSString stringWithFormat:@"%@ %d now", reportName, value]];
     return YES;
 }
 
 -(BOOL)generateBodyWithDouble:(double) value {
     NSDate* now = [NSDate date];
+//    postBody = [[NSMutableString alloc] initWithString:
+//                [NSString stringWithFormat:@"%@ %f %ld", reportName, value, ((long)[now timeIntervalSince1970])]];
     postBody = [[NSMutableString alloc] initWithString:
-        [NSString stringWithFormat:@"%@ %f %ld", reportName, value, ((long)[now timeIntervalSince1970])]];
+                [NSString stringWithFormat:@"%@ %f now", reportName, value]];
     return YES;
 }
 
 -(BOOL)generateBodyWithInt:(int) value andContext:(NSString*) context {
     NSDate* now = [NSDate date];
+//    postBody = [[NSMutableString alloc] initWithString:
+//        [NSString stringWithFormat:@"%@ %d %ld %@", reportName,
+//         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
     postBody = [[NSMutableString alloc] initWithString:
-        [NSString stringWithFormat:@"%@ %d %ld %@", reportName,
-         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
+                [NSString stringWithFormat:@"%@ %d now %@", reportName,
+                 value, [EPBase64 encode:context]]];
     return YES;
 }
 
 -(BOOL)generateBodyWithDouble:(double) value andContext:(NSString *)context {
     NSDate* now = [NSDate date];
+//    postBody = [[NSMutableString alloc] initWithString:
+//        [NSString stringWithFormat:@"%@ %f %ld %@", reportName,
+//         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
     postBody = [[NSMutableString alloc] initWithString:
-        [NSString stringWithFormat:@"%@ %f %ld %@", reportName,
-         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
+        [NSString stringWithFormat:@"%@ %f now %@", reportName,
+        value, [EPBase64 encode:context]]];
     return YES;
 }
 @end

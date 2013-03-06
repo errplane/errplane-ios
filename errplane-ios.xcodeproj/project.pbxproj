@@ -28,7 +28,7 @@
 		CD0EE5BA16CE548600210834 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5B916CE548600210834 /* SenTestingKit.framework */; };
 		CD0EE5BC16CE548600210834 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5BB16CE548600210834 /* UIKit.framework */; };
 		CD0EE5BD16CE548600210834 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5AB16CE548600210834 /* Foundation.framework */; };
-		CD0EE5C016CE548600210834 /* liberrplane-ios.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */; };
+		CD0EE5C016CE548600210834 /* liberrplane-ios.1.0.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.1.a */; };
 		CD0EE5C616CE548600210834 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD0EE5C416CE548600210834 /* InfoPlist.strings */; };
 		CD0EE5D416CE5A8B00210834 /* Errplane.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5D216CE5A8B00210834 /* Errplane.h */; };
 		CD0EE5D516CE5A8B00210834 /* Errplane.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5D316CE5A8B00210834 /* Errplane.m */; };
@@ -126,7 +126,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liberrplane-ios.1.0.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "liberrplane-ios.1.0.1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0EE5AB16CE548600210834 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CD0EE5AF16CE548600210834 /* errplane-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "errplane-ios-Prefix.pch"; sourceTree = "<group>"; };
 		CD0EE5B816CE548600210834 /* errplane-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "errplane-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,7 +175,7 @@
 				CD0EE5BA16CE548600210834 /* SenTestingKit.framework in Frameworks */,
 				CD0EE5BC16CE548600210834 /* UIKit.framework in Frameworks */,
 				CD0EE5BD16CE548600210834 /* Foundation.framework in Frameworks */,
-				CD0EE5C016CE548600210834 /* liberrplane-ios.1.0.a in Frameworks */,
+				CD0EE5C016CE548600210834 /* liberrplane-ios.1.0.1.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +204,7 @@
 		CD0EE5A916CE548600210834 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */,
+				CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.1.a */,
 				CD0EE5B816CE548600210834 /* errplane-iosTests.octest */,
 				CDD72A7A16E36EE000DC703A /* liberrplane-ios-sim.1.0.a */,
 			);
@@ -342,7 +342,7 @@
 			);
 			name = "errplane-ios";
 			productName = "errplane-ios";
-			productReference = CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.a */;
+			productReference = CD0EE5A816CE548600210834 /* liberrplane-ios.1.0.1.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		CD0EE5B716CE548600210834 /* errplane-iosTests */ = {
@@ -536,7 +536,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -560,7 +560,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
@@ -579,7 +579,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DSTROOT = /tmp/errplane_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
@@ -598,7 +598,7 @@
 					armv6,
 					"$(ARCHS_STANDARD_32_BIT)",
 				);
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.0.1;
 				DSTROOT = /tmp/errplane_ios.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "errplane-ios/errplane-ios-Prefix.pch";
