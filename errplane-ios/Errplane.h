@@ -56,6 +56,11 @@
 + (void) setSessionUser: (NSString*) sessUser;
 
 /**
+ Try to clear any outstanding Errplane reports.
+ */
++ (void) flush;
+
+/**
  Leave a trail indicating what might have lead to an Exception.  The last 10 are sent
     with exception details.  If pushing a breadcrumb on the queue when it already has
     10 breadcrumbs, the oldest will be popped off the back of the queue.

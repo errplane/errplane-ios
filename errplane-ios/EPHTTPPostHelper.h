@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "EPReportHelper.h"
+@class EPReportHelper;
 
 @interface EPHTTPPostHelper : NSObject
 

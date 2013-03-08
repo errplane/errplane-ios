@@ -7,6 +7,7 @@
 //
 
 #import "Errplane.h"
+#include <UIKit/UIKit.h>
 #include <CommonCrypto/CommonDigest.h>
 #include <objc/objc-sync.h>
 
@@ -88,6 +89,24 @@ static EPDefaultExceptionHash* hashFunc = nil;
     [EPExceptionDetailHelper setSessionUser:sessUser];
 }
 
++ (void) flush {
+    if ([reportQueue count] > 0) {
+        // run the background task to complete sending reports
+        UIBackgroundTaskIdentifier bti = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
+        
+        // keep checking if the queue is empty, but don't wait longer than 1 minute
+        int waitCount = 0;
+        while (([reportQueue count] > 0) && (waitCount <= 60)) {
+            [NSThread sleepForTimeInterval:1];
+            waitCount++;
+        }
+        
+        if (bti != UIBackgroundTaskInvalid) {
+            [[UIApplication sharedApplication] endBackgroundTask:bti];
+        }
+    }
+}
+
 + (void) breadcrumb:(NSString *)bc {
     [EPExceptionDetailHelper breadcrumb:bc];
 }
@@ -118,6 +137,7 @@ static EPDefaultExceptionHash* hashFunc = nil;
     BOOL success = NO;
     NSHTTPURLResponse *response;
     NSError *error;
+    
     [NSURLConnection sendSynchronousRequest:
         [EPHTTPPostHelper generateRequestForReport:eprh] returningResponse:&response error:&error];
     if (response.statusCode == 201) {
@@ -139,8 +159,9 @@ static EPDefaultExceptionHash* hashFunc = nil;
             sendSuccess = [self sendReport:eprh];
             iter++;
         }
-        
-        [reportQueue removeObject:eprh];
+        @synchronized(reportQueue) {
+            [reportQueue removeObject:eprh];
+        }
     });
 }
 

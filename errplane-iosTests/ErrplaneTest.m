@@ -92,8 +92,8 @@
     
     STAssertTrue([Errplane report:@"unittest_errplane-ios/testReport"], @"Failed to report data to Errplane");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testReportWithInt {
@@ -102,8 +102,8 @@
     STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithInt"
                            withInt: 37], @"Failed to report data to Errplane");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testReportWithDouble {
@@ -112,8 +112,8 @@
     STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithDouble"
                            withDouble: 356.75], @"Failed to report data to Errplane");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testReportWithContext {
@@ -122,8 +122,8 @@
     STAssertTrue([Errplane report:@"unittest_errplane-ios/testReportWithContext"
                       withContext:@"Delayed Server Request"], @"Failed to report data to Errplane");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testReportWithIntAndContext {
@@ -133,8 +133,8 @@
                            withInt: 2500
                            andContext:@"Slow Processing"], @"Failed to report data to Errplane");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testReportWithDoubleAndContext {
@@ -144,8 +144,8 @@
                            withDouble: 192.75
                            andContext:@"Average Response Time"], @"Failed to report data to Errplane");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testException {
@@ -158,10 +158,10 @@
         STAssertTrue([Errplane reportException:exception], @"testException failed");
     }
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
-    
     STAssertFalse([Errplane reportException:nil], @"testException failed - exception was nil");
+    
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testExceptionWithCustomData {
@@ -177,8 +177,8 @@
                       @"testExceptionWithCustomData failed - custom data was nil");
     }
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testExceptionWithHash {
@@ -195,8 +195,8 @@
                       @"testExceptionWithHash failed - hash was nil");
     }
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testExceptionWithHashAndCustomData {
@@ -220,8 +220,8 @@
                       @"testExceptionWithHashAndCustomData failed - hash and custom data were nil");
     }
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testExceptionWithCustomHashProtocol {
@@ -247,9 +247,8 @@
         STAssertTrue([Errplane reportException:exception], @"testExceptionWithCustomHashProtocol failed");
     }
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
-    
+    // clear errplane
+    [Errplane flush];
     
 }
 
@@ -276,8 +275,8 @@
                      @"testExceptionWithBreadcrumbs big bunch of breadcrumbs failed");
     }
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
     
 }
 
@@ -293,8 +292,8 @@
     
     STAssertTrue([Errplane time:@"unittest_errplane-ios/testTime" withBlock: testTimeBlock], @"Failed to time execution of block.");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 -(void) testTimeWithParam {
@@ -317,8 +316,8 @@
     STAssertTrue([Errplane time:@"unittest_errplane-ios/testTimeWithParam" withBlock: testTimeBlock
                        andParam: blockParam], @"Failed to time execution of block.");
     
-    // wait a few for the calls to return
-    [NSThread sleepForTimeInterval:2];
+    // clear errplane
+    [Errplane flush];
 }
 
 @end

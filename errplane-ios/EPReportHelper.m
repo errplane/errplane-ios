@@ -15,6 +15,9 @@
 @synthesize reportName;
 @synthesize postBody;
 
+// used when we send the report to see if millis should be changed to 'now' instead
+static const NSString* seperator = @"||||";
+
 - (BOOL) initWithUrlName:(NSURL *)url :(NSString *)name {
     BOOL success = YES;
     
@@ -37,41 +40,31 @@
 
 -(BOOL)generateBodyWithInt: (int) value {
     NSDate* now = [NSDate date];
-//    postBody = [[NSMutableString alloc] initWithString:
-//                [NSString stringWithFormat:@"%@ %d %ld", reportName, value, ((long)[now timeIntervalSince1970])]];
-    postBody = [[NSMutableString alloc] initWithString:
-                [NSString stringWithFormat:@"%@ %d now", reportName, value]];
+    postBody = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:
+            @"%@ %d %@%ld", reportName, value, seperator, ((long)[now timeIntervalSince1970])]];
     return YES;
 }
 
 -(BOOL)generateBodyWithDouble:(double) value {
     NSDate* now = [NSDate date];
-//    postBody = [[NSMutableString alloc] initWithString:
-//                [NSString stringWithFormat:@"%@ %f %ld", reportName, value, ((long)[now timeIntervalSince1970])]];
-    postBody = [[NSMutableString alloc] initWithString:
-                [NSString stringWithFormat:@"%@ %f now", reportName, value]];
+    postBody = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:
+            @"%@ %f %@%ld", reportName, value, seperator, ((long)[now timeIntervalSince1970])]];
     return YES;
 }
 
 -(BOOL)generateBodyWithInt:(int) value andContext:(NSString*) context {
     NSDate* now = [NSDate date];
-//    postBody = [[NSMutableString alloc] initWithString:
-//        [NSString stringWithFormat:@"%@ %d %ld %@", reportName,
-//         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
     postBody = [[NSMutableString alloc] initWithString:
-                [NSString stringWithFormat:@"%@ %d now %@", reportName,
-                 value, [EPBase64 encode:context]]];
+            [NSString stringWithFormat:@"%@ %d %@%ld%@ %@", reportName,
+            value, seperator, ((long)[now timeIntervalSince1970]), seperator, [EPBase64 encode:context]]];
     return YES;
 }
 
 -(BOOL)generateBodyWithDouble:(double) value andContext:(NSString *)context {
     NSDate* now = [NSDate date];
-//    postBody = [[NSMutableString alloc] initWithString:
-//        [NSString stringWithFormat:@"%@ %f %ld %@", reportName,
-//         value, ((long)[now timeIntervalSince1970]), [EPBase64 encode:context]]];
     postBody = [[NSMutableString alloc] initWithString:
-        [NSString stringWithFormat:@"%@ %f now %@", reportName,
-        value, [EPBase64 encode:context]]];
+            [NSString stringWithFormat:@"%@ %f %@%ld%@ %@", reportName,
+            value, seperator, ((long)[now timeIntervalSince1970]), seperator, [EPBase64 encode:context]]];
     return YES;
 }
 @end
