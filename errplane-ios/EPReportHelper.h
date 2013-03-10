@@ -14,16 +14,21 @@
     NSURL* errplaneUrl;
     NSString* reportName;
     NSMutableString* postBody;
+    int secsSinceEpoch;
+    NSNumber* reportInt;
+    NSNumber* reportDouble;
+    NSString* reportContext;
 }
 
 @property (retain) NSURL* errplaneUrl;
 @property (retain) NSString* reportName;
 @property (retain) NSMutableString* postBody;
+@property (retain) NSNumber* reportInt;
+@property (retain) NSNumber* reportDouble;
+@property (retain) NSString* reportContext;
 
--(BOOL)initWithUrlName: (NSURL*) url: (NSString*) name;
--(BOOL)generateBodyWithInt:(int) value;
--(BOOL)generateBodyWithDouble:(double) value;
--(BOOL)generateBodyWithInt:(int) value andContext:(NSString*) context;
--(BOOL)generateBodyWithDouble:(double) value andContext:(NSString*) context;
+
+-(BOOL)initWithName:(NSString*) name;
+-(BOOL)generateBody;
 
 @end

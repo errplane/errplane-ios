@@ -37,6 +37,12 @@
 		CD0EE5F816CFCCCF00210834 /* EPHTTPPostHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */; };
 		CD0EE5F916CFCCCF00210834 /* EPHTTPPostHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */; };
 		CD0EE5FC16D0FCE700210834 /* ErrplaneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */; };
+		CD8AD51116EA1EEE00B7E303 /* UIViewController+EPReport.h in Headers */ = {isa = PBXBuildFile; fileRef = CD8AD50F16EA1EEE00B7E303 /* UIViewController+EPReport.h */; };
+		CD8AD51216EA1EEE00B7E303 /* UIViewController+EPReport.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8AD51016EA1EEE00B7E303 /* UIViewController+EPReport.m */; };
+		CD8AD51C16EA203B00B7E303 /* UIControl+EPReport.h in Headers */ = {isa = PBXBuildFile; fileRef = CD8AD51A16EA203B00B7E303 /* UIControl+EPReport.h */; };
+		CD8AD51D16EA203B00B7E303 /* UIControl+EPReport.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8AD51B16EA203B00B7E303 /* UIControl+EPReport.m */; };
+		CD8AD52416EA209200B7E303 /* UITableViewController+EPReport.h in Headers */ = {isa = PBXBuildFile; fileRef = CD8AD52216EA209200B7E303 /* UITableViewController+EPReport.h */; };
+		CD8AD52516EA209200B7E303 /* UITableViewController+EPReport.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8AD52316EA209200B7E303 /* UITableViewController+EPReport.m */; };
 		CD9BB19216D8E47000A2B302 /* EPBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = CD9BB19016D8E47000A2B302 /* EPBase64.h */; };
 		CD9BB19316D8E47000A2B302 /* EPBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19116D8E47000A2B302 /* EPBase64.m */; };
 		CD9BB19716D8F2B900A2B302 /* EPBase64Test.m in Sources */ = {isa = PBXBuildFile; fileRef = CD9BB19616D8F2B900A2B302 /* EPBase64Test.m */; };
@@ -143,6 +149,12 @@
 		CD0EE5FA16D0FCE700210834 /* ErrplaneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrplaneTest.h; sourceTree = "<group>"; };
 		CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrplaneTest.m; sourceTree = "<group>"; };
 		CD70C64716E3AA8800F63D38 /* errplane-ios-dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "errplane-ios-dist"; sourceTree = "<group>"; };
+		CD8AD50F16EA1EEE00B7E303 /* UIViewController+EPReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+EPReport.h"; sourceTree = "<group>"; };
+		CD8AD51016EA1EEE00B7E303 /* UIViewController+EPReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+EPReport.m"; sourceTree = "<group>"; };
+		CD8AD51A16EA203B00B7E303 /* UIControl+EPReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+EPReport.h"; sourceTree = "<group>"; };
+		CD8AD51B16EA203B00B7E303 /* UIControl+EPReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+EPReport.m"; sourceTree = "<group>"; };
+		CD8AD52216EA209200B7E303 /* UITableViewController+EPReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewController+EPReport.h"; sourceTree = "<group>"; };
+		CD8AD52316EA209200B7E303 /* UITableViewController+EPReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewController+EPReport.m"; sourceTree = "<group>"; };
 		CD9BB19016D8E47000A2B302 /* EPBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBase64.h; sourceTree = "<group>"; };
 		CD9BB19116D8E47000A2B302 /* EPBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPBase64.m; sourceTree = "<group>"; };
 		CD9BB19516D8F2B900A2B302 /* EPBase64Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPBase64Test.h; sourceTree = "<group>"; };
@@ -193,6 +205,7 @@
 		CD0EE59D16CE548600210834 = {
 			isa = PBXGroup;
 			children = (
+				CD8AD50D16EA1EA600B7E303 /* UIReporting */,
 				CD70C64716E3AA8800F63D38 /* errplane-ios-dist */,
 				CD0EE5AD16CE548600210834 /* errplane-ios */,
 				CD0EE5C116CE548600210834 /* errplane-iosTests */,
@@ -291,6 +304,19 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		CD8AD50D16EA1EA600B7E303 /* UIReporting */ = {
+			isa = PBXGroup;
+			children = (
+				CD8AD50F16EA1EEE00B7E303 /* UIViewController+EPReport.h */,
+				CD8AD51016EA1EEE00B7E303 /* UIViewController+EPReport.m */,
+				CD8AD51A16EA203B00B7E303 /* UIControl+EPReport.h */,
+				CD8AD51B16EA203B00B7E303 /* UIControl+EPReport.m */,
+				CD8AD52216EA209200B7E303 /* UITableViewController+EPReport.h */,
+				CD8AD52316EA209200B7E303 /* UITableViewController+EPReport.m */,
+			);
+			path = UIReporting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -306,6 +332,9 @@
 				CD9BB19C16DA37D400A2B302 /* EPDefaultExceptionHash.h in Headers */,
 				CD9BB1A016DA438F00A2B302 /* EPExceptionDetailHelper.h in Headers */,
 				CD9BB1A416DA4E0800A2B302 /* EPIOSDeviceInfo.h in Headers */,
+				CD8AD51116EA1EEE00B7E303 /* UIViewController+EPReport.h in Headers */,
+				CD8AD51C16EA203B00B7E303 /* UIControl+EPReport.h in Headers */,
+				CD8AD52416EA209200B7E303 /* UITableViewController+EPReport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +505,9 @@
 				CD9BB19D16DA37D400A2B302 /* EPDefaultExceptionHash.m in Sources */,
 				CD9BB1A116DA438F00A2B302 /* EPExceptionDetailHelper.m in Sources */,
 				CD9BB1A516DA4E0800A2B302 /* EPIOSDeviceInfo.m in Sources */,
+				CD8AD51216EA1EEE00B7E303 /* UIViewController+EPReport.m in Sources */,
+				CD8AD51D16EA203B00B7E303 /* UIControl+EPReport.m in Sources */,
+				CD8AD52516EA209200B7E303 /* UITableViewController+EPReport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
