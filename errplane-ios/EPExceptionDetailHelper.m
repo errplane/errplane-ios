@@ -59,7 +59,7 @@ static const int BC_CAPACITY = 10;
 }
 
 + (NSString*) createExceptionDetailFromDictionary:(NSDictionary*)dictionary {
-    NSMutableString* jsonStr = [[NSMutableString alloc] init];
+    NSMutableString* jsonStr = [[[NSMutableString alloc] init] autorelease];
     [jsonStr appendFormat:@"{"];
     NSArray* keys = [dictionary allKeys];
     int keyCount = [keys count];
@@ -117,7 +117,7 @@ static const int BC_CAPACITY = 10;
         // use NSJSONSerialization
         NSError* error;
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:nil error:&error];
-        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
     }
     
     return [self createExceptionDetailFromDictionary:jsonDictionary];
@@ -133,7 +133,7 @@ static const int BC_CAPACITY = 10;
         // use NSJSONSerialization
         NSError* error;
         NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:nil error:&error];
-        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
     }
     
     return [self createExceptionDetailFromDictionary:jsonDictionary]; 

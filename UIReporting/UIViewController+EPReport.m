@@ -21,6 +21,10 @@
         originalMethod = class_getInstanceMethod(self, @selector(loadView));
         replacedMethod = class_getInstanceMethod(self, @selector(reportLoadView));
         method_exchangeImplementations(originalMethod, replacedMethod);
+        
+        originalMethod = class_getInstanceMethod(self, @selector(viewDidLoad));
+        replacedMethod = class_getInstanceMethod(self, @selector(reportViewDidLoad));
+        method_exchangeImplementations(originalMethod, replacedMethod);
     }
 }
 
@@ -37,6 +41,20 @@
     
     timedBlock = ^(void) {
         [self reportLoadView];
+    };
+    
+    [Errplane time:[NSString stringWithFormat:@"controllers/%@",controller]
+         withBlock:timedBlock];
+    
+}
+
+- (void) reportViewDidLoad {
+    NSString *controller = NSStringFromClass([self class]);
+    
+    void (^timedBlock) (void);
+    
+    timedBlock = ^(void) {
+        [self reportViewDidLoad];
     };
     
     [Errplane time:[NSString stringWithFormat:@"controllers/%@",controller]

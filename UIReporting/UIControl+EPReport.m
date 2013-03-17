@@ -25,13 +25,13 @@
     
     NSString *targetClassStr = NSStringFromClass([target class]);
     
-    [Errplane report:[NSString stringWithFormat:@"controllers/%@_%s",targetClassStr,action]];
+    [Errplane report:[NSString stringWithFormat:@"controllers/%@#%s",targetClassStr,action]];
     
     void (^timedBlock) (void);
     timedBlock = ^(void) {
         [self reportSendAction:action to:target forEvent:event];
     };
     
-    [Errplane time:[NSString stringWithFormat:@"%@_%s",targetClassStr,action] withBlock:timedBlock];
+    [Errplane time:[NSString stringWithFormat:@"%@#%s",targetClassStr,action] withBlock:timedBlock];
 }
 @end

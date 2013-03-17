@@ -17,7 +17,7 @@
     [request setValue:@"text/plain" forHTTPHeaderField:@"Content-type"];
     [request setHTTPMethod:@"POST"];
     
-    NSLog(@"report body = %@", [report postBody]);
+    //NSLog(@"report body = %@", [report postBody]);
     
     [request setValue:[NSString stringWithFormat:@"%d",
                        [[report postBody] length]] forHTTPHeaderField:@"Content-length"];

@@ -37,6 +37,8 @@
 		CD0EE5F816CFCCCF00210834 /* EPHTTPPostHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0EE5F616CFCCCF00210834 /* EPHTTPPostHelper.h */; };
 		CD0EE5F916CFCCCF00210834 /* EPHTTPPostHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */; };
 		CD0EE5FC16D0FCE700210834 /* ErrplaneTest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */; };
+		CD60B7DC16F33B8500AAAD72 /* EPUIApplicationNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = CD60B7DA16F33B8500AAAD72 /* EPUIApplicationNotification.h */; };
+		CD60B7DD16F33B8500AAAD72 /* EPUIApplicationNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = CD60B7DB16F33B8500AAAD72 /* EPUIApplicationNotification.m */; };
 		CD8AD51116EA1EEE00B7E303 /* UIViewController+EPReport.h in Headers */ = {isa = PBXBuildFile; fileRef = CD8AD50F16EA1EEE00B7E303 /* UIViewController+EPReport.h */; };
 		CD8AD51216EA1EEE00B7E303 /* UIViewController+EPReport.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8AD51016EA1EEE00B7E303 /* UIViewController+EPReport.m */; };
 		CD8AD51C16EA203B00B7E303 /* UIControl+EPReport.h in Headers */ = {isa = PBXBuildFile; fileRef = CD8AD51A16EA203B00B7E303 /* UIControl+EPReport.h */; };
@@ -148,6 +150,8 @@
 		CD0EE5F716CFCCCF00210834 /* EPHTTPPostHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPHTTPPostHelper.m; sourceTree = "<group>"; };
 		CD0EE5FA16D0FCE700210834 /* ErrplaneTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrplaneTest.h; sourceTree = "<group>"; };
 		CD0EE5FB16D0FCE700210834 /* ErrplaneTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrplaneTest.m; sourceTree = "<group>"; };
+		CD60B7DA16F33B8500AAAD72 /* EPUIApplicationNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPUIApplicationNotification.h; sourceTree = "<group>"; };
+		CD60B7DB16F33B8500AAAD72 /* EPUIApplicationNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPUIApplicationNotification.m; sourceTree = "<group>"; };
 		CD70C64716E3AA8800F63D38 /* errplane-ios-dist */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "errplane-ios-dist"; sourceTree = "<group>"; };
 		CD8AD50F16EA1EEE00B7E303 /* UIViewController+EPReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+EPReport.h"; sourceTree = "<group>"; };
 		CD8AD51016EA1EEE00B7E303 /* UIViewController+EPReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+EPReport.m"; sourceTree = "<group>"; };
@@ -313,6 +317,8 @@
 				CD8AD51B16EA203B00B7E303 /* UIControl+EPReport.m */,
 				CD8AD52216EA209200B7E303 /* UITableViewController+EPReport.h */,
 				CD8AD52316EA209200B7E303 /* UITableViewController+EPReport.m */,
+				CD60B7DA16F33B8500AAAD72 /* EPUIApplicationNotification.h */,
+				CD60B7DB16F33B8500AAAD72 /* EPUIApplicationNotification.m */,
 			);
 			path = UIReporting;
 			sourceTree = "<group>";
@@ -335,6 +341,7 @@
 				CD8AD51116EA1EEE00B7E303 /* UIViewController+EPReport.h in Headers */,
 				CD8AD51C16EA203B00B7E303 /* UIControl+EPReport.h in Headers */,
 				CD8AD52416EA209200B7E303 /* UITableViewController+EPReport.h in Headers */,
+				CD60B7DC16F33B8500AAAD72 /* EPUIApplicationNotification.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,6 +515,7 @@
 				CD8AD51216EA1EEE00B7E303 /* UIViewController+EPReport.m in Sources */,
 				CD8AD51D16EA203B00B7E303 /* UIControl+EPReport.m in Sources */,
 				CD8AD52516EA209200B7E303 /* UITableViewController+EPReport.m in Sources */,
+				CD60B7DD16F33B8500AAAD72 /* EPUIApplicationNotification.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -96,6 +96,7 @@ static EPDefaultExceptionHash* hashFunc = nil;
         [errplaneUrlStr appendString:@"/points?api_key="];
         [errplaneUrlStr appendString:api];
         errplaneUrl = [[NSURL alloc] initWithString:errplaneUrlStr];
+        [errplaneUrlStr release];
         if (errplaneUrl == nil) {
             success = NO;
         }
@@ -144,7 +145,7 @@ static EPDefaultExceptionHash* hashFunc = nil;
 + (NSString*) sha1: (NSString*)toHash {
     
     
-    NSMutableString* hashed = [[NSMutableString alloc] init];
+    NSMutableString* hashed = [[[NSMutableString alloc] init] autorelease];
     
     // hash it
     unsigned char digest[CC_SHA1_DIGEST_LENGTH];

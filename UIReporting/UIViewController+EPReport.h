@@ -14,4 +14,6 @@
 
 - (void) reportLoadView;
 
+- (void) reportViewDidLoad;
+
 @end
